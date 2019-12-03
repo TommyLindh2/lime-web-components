@@ -904,4 +904,92 @@ Notice how every time we break a function down, we're left with descriptive func
 
 In the next section, we'll take a look at how to break these functions out into separate components.
 
-*To be continued…*
+## Moving code to a new component
+
+Now that we've broken things down into smaller functions, let's go ahead and move `renderChangeStatusDialog` to its own component as well. Again, I've removed the implementation details of all but the main render functions, as we don't really care about them right now.
+
+```tsx
+import { Component, h, Prop, State } from '@stencil/core';
+
+@Component({
+    tag: 'lwc-solution-business-status-change-status-dialog',
+    shadow: true,
+    styleUrl: 'lwc-solution-business-status-change-status-dialog.scss',
+})
+export class ChangeStatusDialog {
+    @Prop()
+    public businesstatus: string;
+
+    @Prop()
+    public businessvalue: number;
+
+    @Prop()
+    public tendervalue: number;
+
+    @State()
+    private isOpen = false;
+
+    public render() {
+        return (
+            <limel-dialog
+                heading="Change businesstatus"
+                open={this.isOpen}
+                closingActions={{ escapeKey: false, scrimClick: false }}
+                onClose={() => {
+                    this.isOpen = false;
+                }}
+                onClosing={() => {
+                    this.isConfirmationOpen = true;
+                }}
+            >
+                <form>
+                    {this.renderStatusSelect()}
+                    {this.renderQuoteValueInput()}
+                    {this.renderBusinessValueInput()}
+                    {this.renderWonReasonInput()}
+                    {this.renderLostReasonInput()}
+                </form>
+                {this.renderButtons()}
+            </limel-dialog>
+        );
+    }
+
+    private renderStatusSelect() {
+        return (…);
+    }
+
+    private renderQuoteValueInput() {
+        if (this.businesstatus === 'tender' && this.tendervalue === 0) {
+            return (…);
+        }
+    }
+
+    private renderBusinessValueInput() {
+        if (this.businesstatus === 'agreement' && this.businessvalue === 0) {
+            return (…);
+        }
+    }
+
+    private renderWonReasonInput() {
+        if (this.businesstatus === 'agreement') {
+            return (…);
+        }
+    }
+
+    private renderLostReasonInput() {
+        if (this.businesstatus === 'rejection') {
+            return (…);
+        }
+    }
+
+    private renderButtons() {
+        return (…);
+    }
+}
+```
+
+There are a few things to note here:
+
+  - The new component is *not* a Lime Web Component. It doesn't have to be, as it won't be used on its own. Instead, we will use it from the Lime Web Component we removed the code from.
+  - The new component has its own CSS file, and its own shadow-DOM, meaning its styling is isolated from the rest of the components in your plugin.
+
