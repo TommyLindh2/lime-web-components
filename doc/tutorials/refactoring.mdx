@@ -14,7 +14,7 @@ If you've never heard of *refactoring*, it's simply the process of changing the 
 
 In this tutorial, I'll walk you through a real-world example of refactoring a component, going from a single large component, responsible for doing many different things, and in which almost everything is done by one giant render-method, to several small components, each responsible for a single part of the whole, and isolated so that changes to one part does not inadvertently affect another.
 
-Below is a real-world example of a component in development. It's over 350 lines of code, and over 200 of those are in the render-method. Let's see what we can do to make this a little simpler to work with.
+Below is a real-world example of a component in development. It's over 350 lines of code, and over 200 of those are in the render-method. Let's see what we can do to make this a little simpler to work with. (You *don't* need to read and understand the file below, it's just there for reference. We'll look at a few specific parts of it below.)
 
 *Please note:* Since this code was a work in progress when copied to this tutorial, the functionality is incomplete, and there are several things that could be done to improve the code besides refactoring. In this tutorial, we will only be focusing on how to refactor the code.
 
@@ -34,11 +34,11 @@ const MIN_BVALUE = 0;
 const MIN_REASON_LENGTH = 1;
 
 @Component({
-    tag: 'lwc-solution-change-business-status',
+    tag: 'lwc-solution-business-status',
     shadow: true,
-    styleUrl: 'lwc-solution-change-business-status.scss',
+    styleUrl: 'lwc-solution-business-status.scss',
 })
-export class ChangeBusinessStatus implements LimeWebComponent {
+export class BusinessStatus implements LimeWebComponent {
     @Prop()
     public platform: LimeWebComponentPlatform;
 
@@ -392,10 +392,12 @@ export class ChangeBusinessStatus implements LimeWebComponent {
 }
 ```
 
+## Breaking out functions
+
 Let's focus on that render-method for now. Here it is again, but this time, I've removed a lot of detail that we don't need to care about right now:
 
 ```tsx
-public render() {
+    public render() {
 
         if (this.context.limetype === "company" && this.limeobject) {
 
@@ -753,7 +755,7 @@ That's pretty nice, isn't it?
 The `renderChangeStatusDialog` function is still pretty complicated, so let's break that down in similar fashion:
 
 ```tsx
-private renderChangeStatusDialog() {
+    private renderChangeStatusDialog() {
         return (
             <limel-dialog
                 heading="Change businesstatus"
@@ -773,23 +775,7 @@ private renderChangeStatusDialog() {
                     {this.renderWonReasonInput()}
                     {this.renderLostReasonInput()}
                 </form>
-                <limel-button-group class="reverse-order" slot="button">
-                    <limel-button
-                        primary={true}
-                        label="Save"
-                        disabled={!this.bValueValid()}
-                        onClick={() => {
-                            this.submitForm();
-                            console.log(this.bValue);
-                            console.log(this.wonlostreason);
-                            this.isCreateTodo = true;
-                            if (this.bValue > 500000) {
-                                this.isOpen500k = true;
-                            }
-                        }}
-                    />
-                    <limel-button label="Cancel" onClick={this.closeDialog} />
-                </limel-button-group>
+                {this.renderButtons()}
             </limel-dialog>
         );
     }
@@ -890,6 +876,32 @@ private renderChangeStatusDialog() {
             );
         }
     }
+
+    private renderButtons() {
+        return (
+            <limel-button-group class="reverse-order" slot="button">
+                <limel-button
+                    primary={true}
+                    label="Save"
+                    disabled={!this.bValueValid()}
+                    onClick={() => {
+                        this.submitForm();
+                        console.log(this.bValue);
+                        console.log(this.wonlostreason);
+                        this.isCreateTodo = true;
+                        if (this.bValue > 500000) {
+                            this.isOpen500k = true;
+                        }
+                    }}
+                />
+                <limel-button label="Cancel" onClick={this.closeDialog} />
+            </limel-button-group>
+        );
+    }
 ```
 
 Notice how every time we break a function down, we're left with descriptive function calls, and all the details of the implementation is moved further down in the file? This is a good thing. It makes it easy to get an overview of what a function does, without having to wade through a flood of implementation details. And if we need those details, we can just scroll down to where the relevant function is implemented.
+
+In the next section, we'll take a look at how to break these functions out into separate components.
+
+*To be continued…*
