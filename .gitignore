@@ -1,7 +1,9 @@
 node_modules/
 dist/
 .vscode/
-.docz/
-doc/api/
+#.docz/
+.docz/cache
+!.docz/dist
+#doc/api/
 .npmrc
 .idea
