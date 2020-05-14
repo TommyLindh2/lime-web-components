@@ -16,14 +16,14 @@ Create a new component with `lime-project`
 lime-project generate web-component hello-crm
 ```
 
-Just as with our first component, we can remove most of the code in `` and add more as needed. To get started, our component should look like this.
+Just as with our first component, we can remove most of the code in `src\components\lwc-limepkg-my-plugin-hello-crm\lwc-limepkg-my-plugin-hello-crm.tsx` and add more as needed. To get started, our component should look like this.
 
 ```tsx
 import { Component, Element, Prop } from '@stencil/core';
 import { LimeWebComponent, LimeWebComponentContext, LimeWebComponentPlatform } from '@limetech/lime-web-components-interfaces';
 
 @Component({
-    tag: 'lwc-my-plugin-hello-crm',
+    tag: 'lwc-limepkg-my-plugin-hello-crm',
     shadow: true
 })
 export class HelloCrm implements LimeWebComponent {
@@ -42,13 +42,13 @@ export class HelloCrm implements LimeWebComponent {
 }
 ```
 
-Let's also add it to the same slot as hello-world so we can view it in the webclient.
+Let's also add it in `lwc.config.json` to the same slot as hello-world so we can view it in the webclient.
 
 ```json
 [
     ...
     {
-        "name": "lwc-my-plugin-hello-crm",
+        "name": "lwc-limepkg-my-plugin-hello-crm",
         "slot": "object.card.head.panels"
     }
 ]
