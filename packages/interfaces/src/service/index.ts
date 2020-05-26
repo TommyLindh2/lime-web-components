@@ -8,4 +8,3 @@ export * from './commandbus-service';
 export * from './dialog-service.interface';
 export * from './task-service.interface';
 export * from './event-dispatcher-service';
-export * from './user-statistics-service.interface';

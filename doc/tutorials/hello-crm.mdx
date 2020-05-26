@@ -128,28 +128,3 @@ private async handleClick() {
 ```
 
 Try it out and press the button. The name of the company is updated automatically!
-
-## Track with User Statistics Service
-
-Lets track to `Segment`, https://segment.com, when the name of the company has been changed.
-To track this we are going to use the `UserStatistics` service from the platform.
-
-The `handleClick` button from previous example will now also send a tracking event to `Segment`
-
-```tsx
-private async handleClick() {
-    const http = this.platform.get(PlatformServiceName.Http);
-    await http.put(`api/v1/limeobject/company/${this.context.id}/`, {
-        name: `Super ${this.company['name']}!`
-    });
-    console.log('Company name has been updated!');
-
-    const userStatistics = this.platform.get(PlatformServiceName.UserStatistics);
-    userStatistics.sendTrackEvent('COMPANY_UPDATED' {
-        'id': this.context.id,
-        'name': this.company['name']
-    });
-}
-```
-
-Here we are also passing the `id` and the `name` of the company as properties with the tracking event.

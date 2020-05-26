@@ -42,7 +42,6 @@ export enum PlatformServiceName {
     CommandBus = 'commandBus',
     Dialog = 'dialog',
     EventDispatcher = 'eventDispatcher',
-    UserStatistics = 'userStatistics',
 
     LimetypesState = 'state.limetypes',
     LimeobjectsState = 'state.limeobjects',
