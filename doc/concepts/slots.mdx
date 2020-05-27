@@ -6,7 +6,11 @@ menu: Concepts
 
 # Slots
 
-The Lime CRM webclient defines a set of slots where Lime Web Components can be injected. To specify where a web component should live, edit the file `lwc.config.json` in the root directory for the web components.
+There are a number of slots in the Lime CRM webclient where web components can be added. All of them are configured from the administrator page inside the webclient. Slots can either be slots where components are rendered, or inside menus where actions can be added.
+
+## Deprecated slots
+
+In previous versions of Lime CRM webclient, web components could be directly injected into the client by an addon. This way of configuring web components is now deprecated and will be removed in the future. To specify that a web component should appear in one of these deprecated slots, edit the file `lwc.config.json` in the web component's package.
 
 The format should be:
 
@@ -23,11 +27,18 @@ where `<component-name>` is the `tag` name of the web component specified in the
 
 Only root components should be listed in `lwc.config.json`, i.e. components that are created and injected by the webclient. Other components, e.g. components that are nested or reused between many components, do not belong in any slot and should not be listed.
 
-## List of slots
+### List of slots
 
-The following slots are defined for Lime CRM webclient:
+The following slots were previously defined for Lime CRM webclient. They should no longer be used.
 
 | Slot                          | Location                                  |
 | ----------------------------- | ----------------------------------------- |
-| `dashboard`                   | On the client's dashboard                 |
-| `object.card.head.panels`     | In the header of the limeobject card      |
+| `dashboard`                   | On the client's dashboard *deprecated*                |
+| `object.card.head.panels`     | In the header of the limeobject card *deprecated*     |
+
+#### Migration strategy
+
+When migrating from the deprecated slots, use the following strategies.
+
+* `dashboard` - use the new "Start Page designer" in the administrator interface
+* `object.card.head.panels` - This slot has been split into two. Action-like components consisting mainly of a button opening a dialog etc, should be moved to the action menu for the card. Graphical components that displays information should be moved to the "Web components" configuration section for the card view. Both are accessed from the administrator interface of the webclient.
