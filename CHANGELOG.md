@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/Lundalogik/lime-web-components/compare/v3.2.0...v4.0.0) (2020-05-27)
+
+
+### Bug Fixes
+
+* **user-statistics-service:** revert version 2.5.0 ([5b71a32](https://github.com/Lundalogik/lime-web-components/commit/5b71a3267d869c095c4bf17196b6266e8a51892c))
+* upgrade tslint from 6.1.1 to 6.1.2 ([151c997](https://github.com/Lundalogik/lime-web-components/commit/151c9978b8894b324d5347363973fc434080d260))
+* upgrade tslint from 6.1.1 to 6.1.2 ([c7aa292](https://github.com/Lundalogik/lime-web-components/commit/c7aa292cff8be15d211162b5b3b68a99eb138c72))
+
+
+### BREAKING CHANGES
+
+* **user-statistics-service:** The UserStatistics interface is removed
+
+
+
+
+
 # [3.2.0](https://github.com/Lundalogik/lime-web-components/compare/v3.1.1...v3.2.0) (2020-05-15)
 
 
