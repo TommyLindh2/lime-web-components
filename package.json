@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
-    "@stencil/core": "1.13.0",
+    "@stencil/core": "1.14.0",
     "commitizen": "4.1.2",
     "cz-conventional-changelog": "3.2.0",
     "docz": "0.12.5",
