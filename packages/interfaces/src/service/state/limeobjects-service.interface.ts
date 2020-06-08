@@ -69,4 +69,23 @@ export interface ObjectResponse {
      * Total number of objects that exist matching the query
      */
     totalCount: number;
+
+    /**
+     * Aggregated data
+     */
+    aggregates?: AggregationGroups;
+}
+
+export interface AggregationGroups {
+    /**
+     * Name of the aggregation group along with a list of aggregations
+     */
+    [name: string]: ObjectAggregation[];
+}
+
+export interface ObjectAggregation {
+    /**
+     * Name of the property being aggregated along with its aggregated value
+     */
+    [property: string]: number | string;
 }
