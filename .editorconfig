@@ -10,11 +10,11 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[Makefile]
-indent_style = tab
-
-[package.json]
+[*.json]
 indent_size = 2
 
-[package-lock.json]
+[*.{yml,yaml}]
 indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
