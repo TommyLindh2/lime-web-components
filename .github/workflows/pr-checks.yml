@@ -28,6 +28,7 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm test --if-present
+    - run: npm run docz:build
 
   commitlint:
     name: Commitlint
