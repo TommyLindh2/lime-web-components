@@ -49,5 +49,5 @@ function currentLimeobject(limeobjects: Record<string, { id: string }[]>) {
         return undefined;
     }
 
-    return limeobjects[limetype].find(object => object.id === id);
+    return limeobjects[limetype].find((object) => object.id === id);
 }

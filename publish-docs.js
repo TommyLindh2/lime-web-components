@@ -210,7 +210,9 @@ function remove(pattern) {
 function updateVersionList() {
     shell.cd('docsDist');
 
-    const files = fs.readdirSync('versions').filter(file => file !== 'latest');
+    const files = fs
+        .readdirSync('versions')
+        .filter((file) => file !== 'latest');
     fs.writeFileSync(
         'versions.js',
         `window.versions = ${JSON.stringify(files)};`

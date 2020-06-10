@@ -101,7 +101,7 @@ function getComponentMapping(
     config: StateDecoratorConfig
 ): ComponentMapping {
     let mapping: ComponentMapping = componentMappings.find(
-        item => item.component === component
+        (item) => item.component === component
     );
     if (!mapping) {
         mapping = {
@@ -142,14 +142,14 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
     const originalComponentDidUnload = component.componentDidUnload;
     const subscriptions: Subscription[] = [];
 
-    component.componentWillLoad = async function(...args) {
+    component.componentWillLoad = async function (...args) {
         await ensureLimeProps(this);
 
         const observable = new BehaviorSubject(this.context);
         contexts.set(this, this.context);
         contextObservables.set(this, observable);
 
-        properties.forEach(property => {
+        properties.forEach((property) => {
             if (isContextAware(property.options)) {
                 property.options.context = observable;
             }
@@ -162,7 +162,7 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
         }
     };
 
-    component.componentWillUpdate = async function(...args) {
+    component.componentWillUpdate = async function (...args) {
         const context = contexts.get(this);
         if (context !== this.context) {
             contexts.set(this, this.context);
@@ -176,7 +176,7 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
         }
     };
 
-    component.componentDidUnload = function(...args) {
+    component.componentDidUnload = function (...args) {
         if (originalComponentDidUnload) {
             originalComponentDidUnload.apply(this, args);
         }
@@ -233,7 +233,7 @@ function waitForProp(
     property: string
 ): Promise<void> {
     const element = getElement(target);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         Object.defineProperty(element, property, {
             set: (value: any) => {
                 delete element[property];
@@ -254,7 +254,7 @@ function waitForProp(
  * @returns {void}
  */
 function subscribe(subscriptions: Subscription[], property: Property) {
-    let subscription = subscriptions.find(item => item.instance === this);
+    let subscription = subscriptions.find((item) => item.instance === this);
     if (!subscription) {
         subscription = {
             instance: this,
@@ -282,8 +282,8 @@ function subscribe(subscriptions: Subscription[], property: Property) {
  * @returns {void}
  */
 function unsubscribeAll(subscriptions: Subscription[] = []) {
-    const subscription = subscriptions.find(item => item.instance === this);
-    subscription.unsubscribes.forEach(unsubscribe => unsubscribe());
+    const subscription = subscriptions.find((item) => item.instance === this);
+    subscription.unsubscribes.forEach((unsubscribe) => unsubscribe());
     for (let i = subscriptions.length - 1; i >= 0; i--) {
         const item = subscriptions[i];
         if (item.instance !== this) {
@@ -349,10 +349,10 @@ function createSubscription(
  */
 function bindFunctions(options: StateOptions, scope: any) {
     if (options.filter) {
-        options.filter = options.filter.map(func => func.bind(scope));
+        options.filter = options.filter.map((func) => func.bind(scope));
     }
 
     if (options.map) {
-        options.map = options.map.map(func => func.bind(scope));
+        options.map = options.map.map((func) => func.bind(scope));
     }
 }

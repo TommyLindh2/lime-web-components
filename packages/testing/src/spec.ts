@@ -158,7 +158,7 @@ function extendLifecycleHook(component: any, name: string, hook: () => void) {
         hooks[name] = component[name];
     }
 
-    component[name] = function(...args) {
+    component[name] = function (...args) {
         hook.apply(this, args);
         if (hooks[name]) {
             return hooks[name].apply(this, args);
@@ -242,7 +242,7 @@ function removeListeners(
  * @returns {void}
  */
 function addChildren(parent: HTMLElement, children: HTMLElement[] = []): void {
-    [].slice.call(children).forEach(child => {
+    [].slice.call(children).forEach((child) => {
         parent.appendChild(child);
     });
 }
