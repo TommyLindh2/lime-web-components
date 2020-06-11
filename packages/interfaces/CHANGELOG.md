@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/Lundalogik/lime-web-components/compare/v4.0.1...v4.1.0) (2020-06-11)
+
+
+### Features
+
+* **interfaces:** add aggregates to response ([a4ab5d7](https://github.com/Lundalogik/lime-web-components/commit/a4ab5d77f9f967914ad2e84ff743eb3a8d906009))
+
+
+
+
+
 # [4.0.0](https://github.com/Lundalogik/lime-web-components/compare/v3.2.0...v4.0.0) (2020-05-27)
 
 
