@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/Lundalogik/lime-web-components/compare/v4.1.0...v4.2.0) (2020-06-24)
+
+
+### Features
+
+* **create-dialog:** update create limeobject dialog command ([fac2889](https://github.com/Lundalogik/lime-web-components/commit/fac2889fd4a68f6f5b4dd8ae6184937fea046fc6))
+* **delete-object:** add delete object command ([0d72359](https://github.com/Lundalogik/lime-web-components/commit/0d72359ca8619435a294cb8d0c41b627efde7ab2))
+
+
+
+
+
 # [4.1.0](https://github.com/Lundalogik/lime-web-components/compare/v4.0.1...v4.1.0) (2020-06-11)
 
 
