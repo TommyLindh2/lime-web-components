@@ -11,4 +11,9 @@ export interface LimeWebComponentContext {
      * The id of the limeobject of the context
      */
     id: number | null;
+
+    /**
+     * Optional parent context, if the current context is nested
+     */
+    parent?: LimeWebComponentContext;
 }
