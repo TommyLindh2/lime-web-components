@@ -31,6 +31,7 @@
     "url": "https://github.com/Lundalogik/lime-web-components/issues"
   },
   "dependencies": {
-    "@limetech/lime-web-components-interfaces": "^4.3.0"
+    "@limetech/lime-web-components-interfaces": "^4.3.0",
+    "rxjs": "^6.4.0"
   }
 }
