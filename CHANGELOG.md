@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/Lundalogik/lime-web-components/compare/v4.3.0...v4.3.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* **decorators:** add required dependency on rxjs ([1eef4ad](https://github.com/Lundalogik/lime-web-components/commit/1eef4adb4472d5d2beca095e0fc08f1646cb3297))
+
+
+
+
+
 # [4.3.0](https://github.com/Lundalogik/lime-web-components/compare/v4.2.0...v4.3.0) (2020-07-09)
 
 
