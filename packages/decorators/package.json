@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "@limetech/lime-web-components-interfaces": "^4.3.0",
-    "rxjs": "^6.4.0"
+    "rxjs": "^6.5.5"
   }
 }
