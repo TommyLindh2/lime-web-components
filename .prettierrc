@@ -4,8 +4,11 @@
     "trailingComma": "es5",
     "overrides": [
         {
-            "files": ".prettierrc",
-            "options": { "parser": "json" }
+            "files": [".prettierrc", "*.json"],
+            "options": {
+                "parser": "json",
+                "tabWidth": 2
+            }
         }
     ]
 }
