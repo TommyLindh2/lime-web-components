@@ -1,4 +1,3 @@
-// tslint:disable:no-duplicate-string
 export const coworker = [
     {
         name: 'Lime Test user',

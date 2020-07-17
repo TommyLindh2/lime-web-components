@@ -42,7 +42,7 @@ export function CurrentLimetype(options: ContextAwareStateOptions = {}) {
 }
 
 function currentLimetype(limetypes: any) {
-    const { limetype } = this.context; // tslint:disable-line:no-invalid-this
+    const { limetype } = this.context;
 
     return limetypes[limetype];
 }

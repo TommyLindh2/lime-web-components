@@ -1,4 +1,5 @@
 export type CommandClass = new (...args: any[]) => any;
+
 export type CommandIdentifier = CommandClass | string;
 
 /**
@@ -27,7 +28,7 @@ export interface CommandBusService extends CommandHandler {
      *
      * @param {CommandIdentifier} commandId identifier of the command. Can be either the class or the string the class was registered with
      *
-     * @returns {Boolean} true if the command is supported, false otherwise
+     * @returns {boolean} true if the command is supported, false otherwise
      */
     isSupported(commandId: CommandIdentifier): boolean;
 }
@@ -111,7 +112,8 @@ export function Command(options: CommandOptions) {
 }
 
 function setCommandId(commandClass: CommandClass, id: string) {
-    commandClass['commandId'] = id; // tslint:disable-line:no-string-literal
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    commandClass['commandId'] = id;
 }
 
 /**
@@ -119,14 +121,14 @@ function setCommandId(commandClass: CommandClass, id: string) {
  *
  * @param {Object | CommandIdentifier} value either a command or a command identifier
  *
- * @returns {String} id of the command
+ * @returns {string} id of the command
  */
 export function getCommandId(value: object | CommandIdentifier): string {
     if (typeof value === 'string') {
         return value;
     }
 
-    // tslint:disable:no-string-literal
+    /* eslint-disable @typescript-eslint/dot-notation */
     if (value && value.constructor && value.constructor['commandId']) {
         return value.constructor['commandId'];
     }
@@ -134,7 +136,7 @@ export function getCommandId(value: object | CommandIdentifier): string {
     if (value && value['commandId']) {
         return value['commandId'];
     }
-    // tslint:enable:no-string-literal
+    /* eslint-enable @typescript-eslint/dot-notation */
 
     return null;
 }

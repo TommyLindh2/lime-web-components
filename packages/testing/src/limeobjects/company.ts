@@ -1,4 +1,3 @@
-// tslint:disable:no-duplicate-string
 export const company = [
     {
         name: 'Lime Technologies A/S',

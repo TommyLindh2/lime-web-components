@@ -1,4 +1,3 @@
-/* tslint:disable:no-invalid-this */
 import {
     ContextAwareStateOptions,
     LimeWebComponent,
@@ -125,7 +124,7 @@ function getComponentMapping(
 
 interface Subscription {
     instance: any;
-    unsubscribes: (() => void)[];
+    unsubscribes: Array<() => void>;
 }
 
 /**
@@ -233,6 +232,7 @@ function waitForProp(
     property: string
 ): Promise<void> {
     const element = getElement(target);
+
     return new Promise((resolve) => {
         Object.defineProperty(element, property, {
             set: (value: any) => {

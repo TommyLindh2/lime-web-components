@@ -1,33 +1,33 @@
 {
-  "name": "@limetech/lime-web-components-interfaces",
-  "version": "4.3.0",
-  "author": "Lime Technologies",
-  "homepage": "https://github.com/Lundalogik/lime-web-components",
-  "license": "Apache-2.0",
-  "main": "dist/es5/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "keywords": [
-    "lime web components",
-    "lime crm"
-  ],
-  "directories": {
-    "lib": "dist"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsc && tsc -p tsconfig.es5.json"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Lundalogik/lime-web-components.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Lundalogik/lime-web-components/issues"
-  }
+    "name": "@limetech/lime-web-components-interfaces",
+    "version": "4.3.0",
+    "author": "Lime Technologies",
+    "homepage": "https://github.com/Lundalogik/lime-web-components",
+    "license": "Apache-2.0",
+    "main": "dist/es5/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "lime web components",
+        "lime crm"
+    ],
+    "directories": {
+        "lib": "dist"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc && tsc -p tsconfig.es5.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Lundalogik/lime-web-components.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Lundalogik/lime-web-components/issues"
+    }
 }

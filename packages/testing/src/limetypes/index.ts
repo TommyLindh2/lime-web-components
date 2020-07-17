@@ -48,6 +48,7 @@ export const limetypes: Record<string, Limetype> = {
 export function getLimetype(name: string): Limetype {
     return limetypes[name];
 }
+
 export function getBackreference(limetype: string, property: string): Property {
     return limetypes[limetype].properties[property];
 }

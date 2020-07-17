@@ -7,7 +7,7 @@ import { createStateDecorator, StateDecoratorConfig } from '../index';
 /**
  * DeviceType
  *
- * @type {String}
+ * @type {string}
  */
 export type DeviceType = 'desktop' | 'tablet' | 'phone';
 

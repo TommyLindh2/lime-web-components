@@ -1,4 +1,3 @@
-// tslint:disable:no-duplicate-string
 export const document = [
     {
         iddocument: 1001,

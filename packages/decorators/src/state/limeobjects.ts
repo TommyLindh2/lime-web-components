@@ -42,8 +42,8 @@ export function CurrentLimeobject(options: ContextAwareStateOptions = {}) {
     return createStateDecorator(options, config);
 }
 
-function currentLimeobject(limeobjects: Record<string, { id: string }[]>) {
-    const { limetype, id } = this.context; // tslint:disable-line:no-invalid-this
+function currentLimeobject(limeobjects: Record<string, Array<{ id: string }>>) {
+    const { limetype, id } = this.context;
 
     if (!limeobjects[limetype]) {
         return undefined;

@@ -1,13 +1,14 @@
+/* eslint-env node */
 const fs = require('fs');
 
 traverseFileSystem('doc/api');
 
 function traverseFileSystem(path) {
-    let files = fs.readdirSync(path);
+    const files = fs.readdirSync(path);
 
-    for (let file of files) {
-        let filepath = path + '/' + file;
-        let stats = fs.statSync(filepath);
+    for (const file of files) {
+        const filepath = path + '/' + file;
+        const stats = fs.statSync(filepath);
 
         if (stats.isFile()) {
             transformFile(filepath);
@@ -21,7 +22,7 @@ function transformFile(filepath) {
     let data = fs.readFileSync(filepath, 'utf8');
 
     // Remove hierarchy section
-    regex = new RegExp('Hierarchy.+?##', 'gs');
+    let regex = new RegExp('Hierarchy.+?##', 'gs');
     data = data.replace(regex, '');
 
     // Remove all titles and have them in

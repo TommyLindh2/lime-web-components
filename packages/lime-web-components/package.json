@@ -1,38 +1,38 @@
 {
-  "name": "@limetech/lime-web-components",
-  "version": "4.3.1",
-  "author": "Lime Technologies",
-  "homepage": "https://github.com/Lundalogik/lime-web-components",
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "keywords": [
-    "lime web components",
-    "lime crm"
-  ],
-  "files": [
-    "dist"
-  ],
-  "config": {
-    "commitizen": {
-      "path": "../../node_modules/cz-conventional-changelog"
+    "name": "@limetech/lime-web-components",
+    "version": "4.3.1",
+    "author": "Lime Technologies",
+    "homepage": "https://github.com/Lundalogik/lime-web-components",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "lime web components",
+        "lime crm"
+    ],
+    "files": [
+        "dist"
+    ],
+    "config": {
+        "commitizen": {
+            "path": "../../node_modules/cz-conventional-changelog"
+        }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Lundalogik/lime-web-components.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Lundalogik/lime-web-components/issues"
+    },
+    "dependencies": {
+        "@limetech/lime-web-components-commands": "^4.3.0",
+        "@limetech/lime-web-components-decorators": "^4.3.1",
+        "@limetech/lime-web-components-interfaces": "^4.3.0",
+        "@limetech/lime-web-components-testing": "^4.3.0"
     }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Lundalogik/lime-web-components.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Lundalogik/lime-web-components/issues"
-  },
-  "dependencies": {
-    "@limetech/lime-web-components-commands": "^4.3.0",
-    "@limetech/lime-web-components-decorators": "^4.3.1",
-    "@limetech/lime-web-components-interfaces": "^4.3.0",
-    "@limetech/lime-web-components-testing": "^4.3.0"
-  }
 }

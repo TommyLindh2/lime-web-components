@@ -1,4 +1,3 @@
-// tslint:disable:no-invalid-this
 import { SpecPage } from '@stencil/core/testing';
 import { getElement } from '@stencil/core';
 import { defaultContext, createPlatform } from './platform';

@@ -18,19 +18,19 @@ export interface Property {
     acl: Acl;
     defaultvalue: any;
     fieldorder: number;
-    has_sql?: boolean;
+    has_sql?: boolean; // eslint-disable-line camelcase
     label: string;
     localname: string;
     name: string;
     required: boolean;
     type: PropertyType;
-    options?: {
+    options?: Array<{
         key: string;
         inactive: boolean;
         text: string;
         order?: number;
         id?: number;
-    }[];
+    }>;
     relation?: {
         getLimetype: () => Limetype;
         getBackreference: () => Property;
@@ -80,11 +80,13 @@ export function isRelation(property: Property) {
         'hasmany',
         'hasandbelongstomany',
     ];
+
     return property && propTypes.includes(property.type);
 }
 
 export function isSingleRelation(property: Property) {
     const propTypes: PropertyType[] = ['belongsto', 'hasone'];
+
     return property && propTypes.includes(property.type);
 }
 
@@ -96,15 +98,18 @@ export function isDate(property: Property) {
         'quarter',
         'month',
     ];
+
     return property && propTypes.includes(property.type);
 }
 
 export function isString(property: Property) {
     const propTypes: PropertyType[] = ['string', 'text', 'phone', 'link'];
+
     return property && propTypes.includes(property.type);
 }
 
 export function isFloat(property: Property) {
     const propTypes: PropertyType[] = ['decimal', 'percent'];
+
     return property && propTypes.includes(property.type);
 }

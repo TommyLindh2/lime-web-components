@@ -1,3 +1,4 @@
+/* eslint-env node */
 const shell = require('shelljs');
 const fs = require('fs');
 const replace = require('replace-in-file');
@@ -56,20 +57,25 @@ usage: npm run docz:publish [-- [--v=<version>] [--remove=<pattern>] [--pruneDev
         setupWorktree();
         checkOutBranch();
     }
+
     if (pruneDev) {
         remove('0.0.0-dev*');
         commitMessage = 'chore(deploy docs): prune dev-versions';
     }
+
     if (removeSpecific) {
         remove(argv.remove);
         commitMessage = `chore(deploy docs): remove ${argv.remove}`;
     }
+
     if (commitMessage && runCommit) {
         commit(commitMessage);
     }
+
     if (runPush) {
         push();
     }
+
     if (runTeardown) {
         teardown(true);
     }
@@ -77,9 +83,11 @@ usage: npm run docz:publish [-- [--v=<version>] [--remove=<pattern>] [--pruneDev
     if (runSetup) {
         setupWorktree();
     }
+
     if (runBuild) {
         build();
     }
+
     if (runSetup) {
         // We wait to check out the branch until after the build
         // in order to minimize the time between checkout and push,
@@ -87,15 +95,19 @@ usage: npm run docz:publish [-- [--v=<version>] [--remove=<pattern>] [--pruneDev
         // new commits first, which would make our own push fail.
         checkOutBranch();
     }
+
     if (runBuild) {
         copyBuildOutput();
     }
+
     if (runCommit) {
         commit();
     }
+
     if (runPush) {
         push();
     }
+
     if (runTeardown) {
         teardown(true);
     }
@@ -191,7 +203,7 @@ function updateLandingPage() {
         shell.cp(
             '-f',
             'docs-version-selection-page.html',
-            `docsDist/index.html`
+            'docsDist/index.html'
         ).code !== 0
     ) {
         shell.echo('copying output failed!');
