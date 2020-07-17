@@ -1,17 +1,22 @@
 {
   "name": "@limetech/lime-web-components-commands",
-  "version": "4.3.0",
+  "version": "4.3.2",
   "author": "Lime Technologies",
   "homepage": "https://github.com/Lundalogik/lime-web-components",
   "license": "Apache-2.0",
   "main": "dist/es5/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "keywords": ["lime web components", "lime crm"],
+  "keywords": [
+    "lime web components",
+    "lime crm"
+  ],
   "directories": {
     "lib": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && tsc -p tsconfig.es5.json"
   },
@@ -26,6 +31,6 @@
     "url": "https://github.com/Lundalogik/lime-web-components/issues"
   },
   "dependencies": {
-    "@limetech/lime-web-components-interfaces": "^4.3.0"
+    "@limetech/lime-web-components-interfaces": "^4.3.2"
   }
 }
