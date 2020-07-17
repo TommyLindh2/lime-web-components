@@ -1,12 +1,12 @@
 {
-    "mode": "modules",
-    "out": "doc/api",
-    "theme": "markdown",
-    "excludeNotExported": true,
-    "excludePrivate": true,
-    "excludeProtected": true,
-    "excludeExternals": true,
-    "hideBreadcrumbs": true,
-    "hideIndexes": true,
-    "hideSources": true
+  "mode": "modules",
+  "out": "doc/api",
+  "theme": "markdown",
+  "excludeNotExported": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "hideBreadcrumbs": true,
+  "hideIndexes": true,
+  "hideSources": true
 }

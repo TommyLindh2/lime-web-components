@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist",
-        "target": "es2017",
-        "lib": ["es2017", "dom"],
-        "experimentalDecorators": true,
-        "declaration": true,
-        "moduleResolution": "node",
-        "skipLibCheck": true,
-        "removeComments": false
-    },
-    "exclude": ["./node_modules"]
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "es2017",
+    "lib": ["es2017", "dom"],
+    "experimentalDecorators": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "removeComments": false
+  },
+  "exclude": ["./node_modules"]
 }
