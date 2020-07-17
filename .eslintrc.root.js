@@ -1,0 +1,81 @@
+/* eslint-env node */
+module.exports = {
+    env: {
+        browser: true,
+        es2020: true,
+    },
+    extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
+    parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+    },
+    plugins: ['prettier'],
+    rules: {
+        'linebreak-style': ['error', 'unix'],
+        quotes: ['error', 'single', { avoidEscape: true }],
+        semi: ['error', 'always'],
+        'prettier/prettier': 'error',
+        'no-unused-vars': 'off',
+        camelcase: 'error',
+        'comma-dangle': [
+            'error',
+            {
+                arrays: 'always-multiline',
+                functions: 'never',
+                objects: 'always-multiline',
+                imports: 'always-multiline',
+            },
+        ],
+        curly: 'error',
+        'default-case': 'error',
+        eqeqeq: ['error', 'always'],
+        'guard-for-in': 'error',
+        'id-match': 'error',
+        'max-classes-per-file': ['error', 1],
+        'no-bitwise': 'error',
+        'no-caller': 'error',
+        'no-console': 'error',
+        'no-duplicate-imports': 'error',
+        'no-eval': 'error',
+        'no-extra-bind': 'error',
+        'no-magic-numbers': [
+            'error',
+            {
+                ignore: [-1, 0, 1],
+                ignoreArrayIndexes: true,
+            },
+        ],
+        'no-new-func': 'error',
+        'no-new-wrappers': 'error',
+        'no-return-await': 'error',
+        'no-sequences': 'error',
+        'no-shadow': [
+            'error',
+            {
+                hoist: 'all',
+            },
+        ],
+        'no-template-curly-in-string': 'error',
+        'no-throw-literal': 'error',
+        'no-underscore-dangle': 'error',
+        'no-var': 'error',
+        'object-shorthand': ['error', 'never'],
+        'one-var': ['error', 'never'],
+        'padding-line-between-statements': [
+            'error',
+            { blankLine: 'always', prev: '*', next: 'return' },
+            { blankLine: 'always', prev: '*', next: 'function' },
+            { blankLine: 'always', prev: 'multiline-block-like', next: '*' },
+        ],
+        'prefer-const': 'error',
+        'prefer-object-spread': 'error',
+        radix: 'error',
+        'spaced-comment': [
+            'error',
+            'always',
+            {
+                markers: ['/'],
+            },
+        ],
+    },
+};
