@@ -1,5 +1,6 @@
 /* eslint-env node */
 module.exports = {
+    root: true,
     env: {
         browser: true,
         es2020: true,
@@ -20,7 +21,7 @@ module.exports = {
         },
         ecmaVersion: 2020,
         sourceType: 'module',
-        project: ['./tsconfig.json', 'packages/**/tsconfig.json'],
+        project: 'tsconfig.lint.json',
     },
     plugins: [
         '@typescript-eslint',
@@ -133,8 +134,9 @@ module.exports = {
     overrides: [
         {
             files: [
-                'packages/**/src/**/*.spec.{ts,tsx}',
-                'packages/**/src/**/*.e2e.{ts,tsx}',
+                './**/src/**/*.spec.{ts,tsx}',
+                './**/src/**/*.e2e.{ts,tsx}',
+                '.eslintrc.js',
             ],
             rules: {
                 'sonarjs/no-duplicate-string': 'off',
@@ -147,7 +149,7 @@ module.exports = {
             },
         },
         {
-            files: ['packages/testing/src/**'],
+            files: ['./testing/src/**'],
             rules: {
                 'sonarjs/no-duplicate-string': 'off',
                 'sonarjs/no-identical-functions': 'off',

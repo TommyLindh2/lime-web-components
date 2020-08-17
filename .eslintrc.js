@@ -8,6 +8,7 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: 'module',
+        project: 'tsconfig.lint.json',
     },
     plugins: ['prettier'],
     rules: {

@@ -1,0 +1,8 @@
+.docz/
+.github/
+.vscode/
+doc/
+**/dist/
+loader/
+**/node_modules/
+www/
