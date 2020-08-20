@@ -18,7 +18,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && tsc -p tsconfig.es5.json"
+    "build": "tsc && tsc -p tsconfig.es5.json",
+    "test": "stencil test --spec",
+    "test:watch": "stencil test --spec --watch"
   },
   "publishConfig": {
     "access": "public"
@@ -33,5 +35,11 @@
   "dependencies": {
     "@limetech/lime-web-components-interfaces": "^4.3.2",
     "rxjs": "^6.4.0"
+  },
+  "devDependencies": {
+    "@stencil/core": "^1.17.3",
+    "@types/jest": "25.2.3",
+    "jest": "26.0.1",
+    "jest-cli": "26.0.1"
   }
 }
