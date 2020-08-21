@@ -6,4 +6,4 @@ export * from './state/filters';
 export * from './state/limeobjects';
 export * from './state/limetypes';
 export * from './state/session';
-export { StateDecoratorConfig, createStateDecorator } from './factory';
+export { StateDecoratorConfig } from './factory';
