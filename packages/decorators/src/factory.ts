@@ -67,6 +67,7 @@ const contextObservables = new WeakMap<
     object,
     Subject<LimeWebComponentContext>
 >();
+const componentSubscriptions = new WeakMap<any, Array<() => void>>();
 
 /**
  * Get properties data for a component
@@ -102,11 +103,6 @@ function getComponentProperties(
     return properties;
 }
 
-interface Subscription {
-    instance: any;
-    unsubscribes: Array<() => void>;
-}
-
 /**
  * Extend the lifecycle methods on the component
  *
@@ -119,9 +115,9 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
     const originalComponentWillLoad = component.componentWillLoad;
     const originalComponentWillUpdate = component.componentWillUpdate;
     const originalComponentDidUnload = component.componentDidUnload;
-    const subscriptions: Subscription[] = [];
 
     component.componentWillLoad = async function (...args) {
+        componentSubscriptions.set(this, []);
         await ensureLimeProps(this);
 
         const observable = new BehaviorSubject(this.context);
@@ -133,7 +129,7 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
                 property.options.context = observable;
             }
 
-            subscribe.apply(this, [subscriptions, property]);
+            subscribe(this, property);
         });
 
         if (originalComponentWillLoad) {
@@ -160,7 +156,7 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
             originalComponentDidUnload.apply(this, args);
         }
 
-        unsubscribeAll.apply(this, [subscriptions]);
+        unsubscribeAll(this);
     };
 }
 
@@ -226,52 +222,30 @@ function waitForProp(
 
 /**
  * Subscribe to changes from the state
- * Use as `subscription.apply(componentToAugment, [subscriptions, property])`.
  *
- * @param {Subscription[]} subscriptions existing subscriptions on the component
+ * @param {any} component the component instance
  * @param {Property} property property to update when subscription triggers
  *
  * @returns {void}
  */
-function subscribe(subscriptions: Subscription[], property: Property) {
-    let subscription = subscriptions.find((item) => item.instance === this);
-    if (!subscription) {
-        subscription = {
-            instance: this,
-            unsubscribes: [],
-        };
-
-        subscriptions.push(subscription);
-    }
-
-    const unsubscribe = createSubscription.apply(this, [
-        property.options,
-        property.name,
-        property.service.name,
-        property.service.method,
-    ]);
-
-    subscription.unsubscribes.push(unsubscribe);
+function subscribe(component: any, property: Property): void {
+    const subscription = createSubscription(component, property);
+    const subscriptions = componentSubscriptions.get(component);
+    subscriptions.push(subscription);
 }
 
 /**
  * Unsubscribe to changes from the state
  *
- * @param {Subscription[]} subscriptions existing subscriptions on the component
+ * @param {any} component the instance of the component
  *
  * @returns {void}
  */
-function unsubscribeAll(subscriptions: Subscription[] = []) {
-    const subscription = subscriptions.find((item) => item.instance === this);
-    subscription.unsubscribes.forEach((unsubscribe) => unsubscribe());
-    for (let i = subscriptions.length - 1; i >= 0; i--) {
-        const item = subscriptions[i];
-        if (item.instance !== this) {
-            continue;
-        }
+function unsubscribeAll(component: any): void {
+    const subscriptions = componentSubscriptions.get(component);
 
-        subscriptions.splice(i, 1);
-    }
+    subscriptions.forEach((unsubscribe) => unsubscribe());
+    componentSubscriptions.set(component, []);
 }
 
 /**
@@ -291,32 +265,28 @@ function mapState(instance: any, property: string) {
 
 /**
  * Create a state subscription
- * Use as `createSubscription.apply(componentToAugment, [options, property, name, method])`.
  *
- * @param {StateOptions} options options for the selector
- * @param {string} property name of the property on the component
- * @param {string} name name of the state service
- * @param {string} method name of method on the state service
+ * @param {any} component the component instance
+ * @param {Property} property the property on the component
  *
  * @returns {Function} unsubscribe function
  */
-function createSubscription(
-    options: StateOptions,
-    property: string,
-    name: string,
-    method: string
-) {
-    const myOptions = { ...options };
-    bindFunctions(myOptions, this);
+function createSubscription(component: any, property: Property): () => void {
+    const myOptions = { ...property.options };
+    bindFunctions(myOptions, component);
+    const name = property.service.name;
 
-    const platform: LimeWebComponentPlatform = this.platform;
+    const platform: LimeWebComponentPlatform = component.platform;
     if (!platform.has(name)) {
         throw new Error(`Service ${name} does not exist`);
     }
 
     const service: any = platform.get(name);
 
-    return service[method](mapState(this, property), myOptions);
+    return service[property.service.method](
+        mapState(component, property.name),
+        myOptions
+    );
 }
 
 /**
