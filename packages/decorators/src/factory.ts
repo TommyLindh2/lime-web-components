@@ -21,9 +21,11 @@ export interface StateDecoratorConfig {
 }
 
 interface Component {
+    connectedCallback: () => void | Promise<void>;
     componentWillLoad: () => void | Promise<void>;
     componentWillUpdate: () => void | Promise<void>;
     componentDidUnload: () => void;
+    disconnectedCallback: () => void | Promise<void>;
 }
 
 interface Property {
@@ -68,6 +70,7 @@ const contextObservables = new WeakMap<
     Subject<LimeWebComponentContext>
 >();
 const componentSubscriptions = new WeakMap<any, Array<() => void>>();
+const connectedComponents = new WeakMap<any, boolean>();
 
 /**
  * Get properties data for a component
@@ -112,6 +115,17 @@ function getComponentProperties(
  * @returns {void}
  */
 function extendLifecycleMethods(component: Component, properties: Property[]) {
+    // `componentWillLoad` and `componentDidUnload` is included for backwards
+    // compatibility reasons. The correct way to setup the subscriptions is in
+    // `connectedCallback` and `disconnectedCallback`, but since not all
+    // plugins might implement those methods yet we still have include them
+    // until we make `connectedCallback` and `disconnectedCallback` required
+    // on the interface.
+
+    component.connectedCallback = createConnectedCallback(
+        component.connectedCallback,
+        properties
+    );
     component.componentWillLoad = createComponentWillLoad(
         component.componentWillLoad,
         properties
@@ -119,13 +133,17 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
     component.componentWillUpdate = createComponentWillUpdate(
         component.componentWillUpdate
     );
-    component.componentDidUnload = createComponentDidUnload(
+    component.componentDidUnload = createDisconnectedCallback(
         component.componentDidUnload
+    );
+    component.disconnectedCallback = createDisconnectedCallback(
+        component.disconnectedCallback
     );
 }
 
-function createComponentWillLoad(original: Function, properties: Property[]) {
+function createConnectedCallback(original: Function, properties: Property[]) {
     return async function (...args) {
+        connectedComponents.set(this, true);
         componentSubscriptions.set(this, []);
         await ensureLimeProps(this);
 
@@ -147,6 +165,22 @@ function createComponentWillLoad(original: Function, properties: Property[]) {
     };
 }
 
+function createComponentWillLoad(original: Function, properties: Property[]) {
+    return async function (...args) {
+        if (connectedComponents.get(this) === true) {
+            if (original) {
+                return original.apply(this, args);
+            }
+
+            return;
+        }
+
+        const connectedCallback = createConnectedCallback(original, properties);
+
+        return connectedCallback.apply(this, args);
+    };
+}
+
 function createComponentWillUpdate(original: Function) {
     return async function (...args) {
         const context = contexts.get(this);
@@ -163,13 +197,16 @@ function createComponentWillUpdate(original: Function) {
     };
 }
 
-function createComponentDidUnload(original: Function) {
-    return function (...args) {
+function createDisconnectedCallback(original: Function) {
+    return async function (...args) {
+        let result;
         if (original) {
-            original.apply(this, args);
+            result = original.apply(this, args);
         }
 
         unsubscribeAll(this);
+
+        return result;
     };
 }
 

@@ -40,9 +40,11 @@ describe('createStateDecorator', () => {
             }
             const component: any = new MyComponent();
 
+            expect(typeof component.connectedCallback).toEqual('function');
             expect(typeof component.componentWillLoad).toEqual('function');
             expect(typeof component.componentWillUpdate).toEqual('function');
             expect(typeof component.componentDidUnload).toEqual('function');
+            expect(typeof component.disconnectedCallback).toEqual('function');
         });
     });
 
@@ -57,15 +59,21 @@ describe('createStateDecorator', () => {
             }
             const component: any = new MyComponent();
 
+            const connectedCallback = component.connectedCallback;
             const componentWillLoad = component.componentWillLoad;
             const componentWillUpdate = component.componentWillUpdate;
             const componentDidUnload = component.componentDidUnload;
+            const disconnectedCallback = component.disconnectedCallback;
 
             Decorator()(MyComponent.prototype, 'bar');
 
+            expect(component.connectedCallback).toEqual(connectedCallback);
             expect(component.componentWillLoad).toEqual(componentWillLoad);
             expect(component.componentWillUpdate).toEqual(componentWillUpdate);
             expect(component.componentDidUnload).toEqual(componentDidUnload);
+            expect(component.disconnectedCallback).toEqual(
+                disconnectedCallback
+            );
         });
     });
 
@@ -75,18 +83,23 @@ describe('createStateDecorator', () => {
             class MyComponent {
                 foo: any;
 
+                connectedCallback() {}
                 componentWillLoad() {}
                 componentWillUpdate() {}
                 componentDidUnload() {}
+                disconnectedCallback() {}
             }
             const component: any = new MyComponent();
 
+            const connectedCallback = component.connectedCallback;
             const componentWillLoad = component.componentWillLoad;
             const componentWillUpdate = component.componentWillUpdate;
             const componentDidUnload = component.componentDidUnload;
+            const disconnectedCallback = component.disconnectedCallback;
 
             Decorator()(MyComponent.prototype, 'foo');
 
+            expect(component.connectedCallback).not.toEqual(connectedCallback);
             expect(component.componentWillLoad).not.toEqual(componentWillLoad);
             expect(component.componentWillUpdate).not.toEqual(
                 componentWillUpdate
@@ -94,10 +107,13 @@ describe('createStateDecorator', () => {
             expect(component.componentDidUnload).not.toEqual(
                 componentDidUnload
             );
+            expect(component.disconnectedCallback).not.toEqual(
+                disconnectedCallback
+            );
         });
     });
 
-    describe('when invoking componentWillLoad without required properties', () => {
+    describe('when invoking connectedCallback without required properties', () => {
         let component: any;
         let element: any;
 
@@ -114,14 +130,14 @@ describe('createStateDecorator', () => {
 
         it('returns a promise that does not resolve', () => {
             expect.assertions(0);
-            component.componentWillLoad().then(() => {
+            component.connectedCallback().then(() => {
                 expect(false).toBeTruthy();
             });
         });
 
         it('returns a promise that resolves when platform and context has been set', () => {
             expect.assertions(1);
-            component.componentWillLoad().then(() => {
+            component.connectedCallback().then(() => {
                 expect(true).toBeTruthy();
             });
             component.platform = platform;
@@ -131,15 +147,28 @@ describe('createStateDecorator', () => {
         });
     });
 
-    describe('when invoking componentWillLoad with required properties', () => {
+    describe('when invoking connectedCallback or componentWillLoad with required properties', () => {
         let component;
         beforeEach(() => {
             component = createComponent();
         });
 
         it('creates a subscription on the service', async () => {
+            await component.connectedCallback();
+            expect(service.getSubscriptions().length).toEqual(1);
+        });
+
+        it('creates a subscription on the service', async () => {
             await component.componentWillLoad();
             expect(service.getSubscriptions().length).toEqual(1);
+        });
+
+        describe('when invoking both connectedCallback and componentWillLoad', () => {
+            it('creates only one subscription on the service', async () => {
+                await component.connectedCallback();
+                await component.componentWillLoad();
+                expect(service.getSubscriptions().length).toEqual(1);
+            });
         });
     });
 
@@ -149,23 +178,42 @@ describe('createStateDecorator', () => {
             component = createComponent({ foo: true, bar: true });
         });
 
-        it('componentWillLoad creates a subscription for each property', async () => {
-            await component.componentWillLoad();
+        it('connectedCallback creates a subscription for each property', async () => {
+            await component.connectedCallback();
             expect(service.getSubscriptions().length).toEqual(2);
         });
     });
 
-    describe('when invoking componentDidUnload', () => {
+    describe('when invoking disconnectedCallback', () => {
         let component;
         beforeEach(async () => {
             component = createComponent({ foo: true, bar: true });
-            await component.componentWillLoad();
+            await component.connectedCallback();
         });
 
         it('removes the subscriptions', () => {
             expect(service.getSubscriptions().length).toEqual(2);
-            component.componentDidUnload();
+            component.disconnectedCallback();
             expect(service.getSubscriptions().length).toEqual(0);
+        });
+
+        describe('when invoked multiple times', () => {
+            it('does not crash', async () => {
+                expect(service.getSubscriptions().length).toEqual(2);
+                component.disconnectedCallback();
+                expect(service.getSubscriptions().length).toEqual(0);
+                expect(() => component.disconnectedCallback()).not.toThrow();
+            });
+        });
+
+        describe('when a component is inserted in the DOM again after being removed', () => {
+            it('creates a subscription on the service again', async () => {
+                expect(service.getSubscriptions().length).toEqual(2);
+                component.disconnectedCallback();
+                expect(service.getSubscriptions().length).toEqual(0);
+                await component.connectedCallback();
+                expect(service.getSubscriptions().length).toEqual(2);
+            });
         });
     });
 
@@ -175,7 +223,7 @@ describe('createStateDecorator', () => {
         beforeEach(async () => {
             options = { context: null };
             component = createComponent({ foo: true, bar: true }, options);
-            await component.componentWillLoad();
+            await component.connectedCallback();
         });
 
         it('sets the context option to an observable', () => {
@@ -212,15 +260,28 @@ describe('createStateDecorator', () => {
         beforeEach(async () => {
             options = { context: null };
             methods = {
+                connectedCallback: jest.fn(),
                 componentWillLoad: jest.fn(),
                 componentWillUpdate: jest.fn(),
                 componentDidUnload: jest.fn(),
+                disconnectedCallback: jest.fn(),
             };
             component = createComponent(
                 { foo: true, bar: true },
                 options,
                 methods
             );
+        });
+
+        it('connectedCallback invokes the original connectedCallback', async () => {
+            expect(methods.connectedCallback).toHaveBeenCalledTimes(0);
+            expect(component.connectedCallback).not.toEqual(
+                methods.connectedCallback
+            );
+
+            await component.connectedCallback();
+
+            expect(methods.connectedCallback).toHaveBeenCalledTimes(1);
         });
 
         it('componentWillLoad invokes the original componentWillLoad', async () => {
@@ -234,13 +295,27 @@ describe('createStateDecorator', () => {
             expect(methods.componentWillLoad).toHaveBeenCalledTimes(1);
         });
 
+        describe('when connectedCallback is invoked first', () => {
+            it('componentWillLoad invkoes the original componentWillLoad', async () => {
+                expect(methods.componentWillLoad).toHaveBeenCalledTimes(0);
+                expect(component.componentWillLoad).not.toEqual(
+                    methods.componentWillLoad
+                );
+
+                await component.connectedCallback();
+                await component.componentWillLoad();
+
+                expect(methods.componentWillLoad).toHaveBeenCalledTimes(1);
+            });
+        });
+
         it('componentWillUpdate invokes the original componentWillUpdate', async () => {
             expect(methods.componentWillUpdate).toHaveBeenCalledTimes(0);
             expect(component.componentWillUpdate).not.toEqual(
                 methods.componentWillUpdate
             );
 
-            await component.componentWillLoad();
+            await component.connectedCallback();
             component.componentWillUpdate();
 
             expect(methods.componentWillUpdate).toHaveBeenCalledTimes(1);
@@ -252,10 +327,22 @@ describe('createStateDecorator', () => {
                 methods.componentDidUnload
             );
 
-            await component.componentWillLoad();
+            await component.connectedCallback();
             component.componentDidUnload();
 
             expect(methods.componentDidUnload).toHaveBeenCalledTimes(1);
+        });
+
+        it('disconnectedCallback invokes the original disconnectedCallback', async () => {
+            expect(methods.disconnectedCallback).toHaveBeenCalledTimes(0);
+            expect(component.disconnectedCallback).not.toEqual(
+                methods.disconnectedCallback
+            );
+
+            await component.connectedCallback();
+            component.disconnectedCallback();
+
+            expect(methods.disconnectedCallback).toHaveBeenCalledTimes(1);
         });
     });
 
