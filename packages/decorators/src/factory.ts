@@ -35,11 +35,6 @@ interface Property {
     };
 }
 
-interface ComponentMapping {
-    component: Component;
-    properties: Property[];
-}
-
 /**
  * Create a new state decorator
  *
@@ -53,20 +48,20 @@ export function createStateDecorator(
     config: StateDecoratorConfig
 ): PropertyDecorator {
     return (target: Component, property: string) => {
-        const componentMapping = getComponentMapping(
+        const properties = getComponentProperties(
             target,
             property,
             options,
             config
         );
 
-        if (componentMapping.properties.length === 1) {
-            extendLifecycleMethods(target, componentMapping.properties);
+        if (properties.length === 1) {
+            extendLifecycleMethods(target, properties);
         }
     };
 }
 
-const componentMappings: ComponentMapping[] = [];
+const componentProperties = new WeakMap<Component, Property[]>();
 const contexts = new WeakMap<object, LimeWebComponentContext>();
 const contextObservables = new WeakMap<
     object,
@@ -74,34 +69,28 @@ const contextObservables = new WeakMap<
 >();
 
 /**
- * Get mappings for a component, containing the properties with a state decorator for
- * the current component
+ * Get properties data for a component
  *
  * @param {Component} component the component class containing the decorator
  * @param {string} property name of the property
  * @param {StateOptions} options decorator options
  * @param {StateDecoratorConfig} config decorator configuration
  *
- * @returns {ComponentMapping} mappings for the component
+ * @returns {Property[]} properties data for the component
  */
-function getComponentMapping(
+function getComponentProperties(
     component: Component,
     property: string,
     options: StateOptions,
     config: StateDecoratorConfig
-): ComponentMapping {
-    let mapping: ComponentMapping = componentMappings.find(
-        (item) => item.component === component
-    );
-    if (!mapping) {
-        mapping = {
-            properties: [],
-            component: component,
-        };
-        componentMappings.push(mapping);
+): Property[] {
+    let properties = componentProperties.get(component);
+    if (!properties) {
+        properties = [];
+        componentProperties.set(component, properties);
     }
 
-    mapping.properties.push({
+    properties.push({
         options: options,
         name: property,
         service: {
@@ -110,7 +99,7 @@ function getComponentMapping(
         },
     });
 
-    return mapping;
+    return properties;
 }
 
 interface Subscription {
