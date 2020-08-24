@@ -112,11 +112,20 @@ function getComponentProperties(
  * @returns {void}
  */
 function extendLifecycleMethods(component: Component, properties: Property[]) {
-    const originalComponentWillLoad = component.componentWillLoad;
-    const originalComponentWillUpdate = component.componentWillUpdate;
-    const originalComponentDidUnload = component.componentDidUnload;
+    component.componentWillLoad = createComponentWillLoad(
+        component.componentWillLoad,
+        properties
+    );
+    component.componentWillUpdate = createComponentWillUpdate(
+        component.componentWillUpdate
+    );
+    component.componentDidUnload = createComponentDidUnload(
+        component.componentDidUnload
+    );
+}
 
-    component.componentWillLoad = async function (...args) {
+function createComponentWillLoad(original: Function, properties: Property[]) {
+    return async function (...args) {
         componentSubscriptions.set(this, []);
         await ensureLimeProps(this);
 
@@ -132,12 +141,14 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
             subscribe(this, property);
         });
 
-        if (originalComponentWillLoad) {
-            return originalComponentWillLoad.apply(this, args);
+        if (original) {
+            return original.apply(this, args);
         }
     };
+}
 
-    component.componentWillUpdate = async function (...args) {
+function createComponentWillUpdate(original: Function) {
+    return async function (...args) {
         const context = contexts.get(this);
         if (context !== this.context) {
             contexts.set(this, this.context);
@@ -146,14 +157,16 @@ function extendLifecycleMethods(component: Component, properties: Property[]) {
             observable.next(this.context);
         }
 
-        if (originalComponentWillUpdate) {
-            return originalComponentWillUpdate.apply(this, args);
+        if (original) {
+            return original.apply(this, args);
         }
     };
+}
 
-    component.componentDidUnload = function (...args) {
-        if (originalComponentDidUnload) {
-            originalComponentDidUnload.apply(this, args);
+function createComponentDidUnload(original: Function) {
+    return function (...args) {
+        if (original) {
+            original.apply(this, args);
         }
 
         unsubscribeAll(this);
