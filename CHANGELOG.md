@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.5](https://github.com/Lundalogik/lime-web-components/compare/v4.3.4...v4.3.5) (2020-08-25)
+
+
+### Bug Fixes
+
+* **decorators:** reconnected components create new subscriptions ([fe84ed4](https://github.com/Lundalogik/lime-web-components/commit/fe84ed4be9466de3187ee2de665a3bfd9d1f9f39)), closes [Lundalogik/crm-feature#1292](https://github.com/Lundalogik/crm-feature/issues/1292)
+
+
+
+
+
 ## [4.3.4](https://github.com/Lundalogik/lime-web-components/compare/v4.3.3...v4.3.4) (2020-08-25)
 
 **Note:** Version bump only for package lime-web-components
