@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.4](https://github.com/Lundalogik/lime-web-components/compare/v4.3.3...v4.3.4) (2020-08-25)
+
+**Note:** Version bump only for package @limetech/lime-web-components-decorators
+
+
+
+
+
 ## [4.3.3](https://github.com/Lundalogik/lime-web-components/compare/v4.3.2...v4.3.3) (2020-08-25)
 
 **Note:** Version bump only for package @limetech/lime-web-components-decorators
