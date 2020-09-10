@@ -57,6 +57,23 @@ export interface LoadOptions {
      * Filter to apply to the objects
      */
     filter?: Expression;
+
+    /**
+     * Order to sort the properties by
+     */
+    order?: PropertyOrder[];
+}
+
+export interface PropertyOrder {
+    /**
+     * Name of the property to sort on
+     */
+    name: string;
+
+    /**
+     * The direction to order the property by
+     */
+    direction: 'ASC' | 'DESC';
 }
 
 export interface ObjectResponse {
