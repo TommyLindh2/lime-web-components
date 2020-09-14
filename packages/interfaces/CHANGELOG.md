@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/Lundalogik/lime-web-components/compare/v4.3.5...v4.4.0) (2020-09-14)
+
+
+### Features
+
+* **interfaces:** add ordering to limeobject LoadOptions ([972f8bd](https://github.com/Lundalogik/lime-web-components/commit/972f8bdd805c758505726bcdefb7bf5a881f1ad6)), closes [Lundalogik/crm-feature#1370](https://github.com/Lundalogik/crm-feature/issues/1370)
+
+
+
+
+
 ## [4.3.5](https://github.com/Lundalogik/lime-web-components/compare/v4.3.4...v4.3.5) (2020-08-25)
 
 
