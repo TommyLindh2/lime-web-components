@@ -88,6 +88,11 @@ export interface ObjectResponse {
     totalCount: number;
 
     /**
+     * Total number of objects that exist (without any filter applied)
+     */
+    totalRelations?: number;
+
+    /**
      * Aggregated data
      */
     aggregates?: AggregationGroups;
