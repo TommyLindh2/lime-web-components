@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/Lundalogik/lime-web-components/compare/v4.4.0...v4.4.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* **interfaces:** add totalRelations to limeobject TotalResponse ([f048eb3](https://github.com/Lundalogik/lime-web-components/commit/f048eb39db2e4fefdb97fcae58ea4f0725db7a65)), closes [Lundalogik/crm-feature#1349](https://github.com/Lundalogik/crm-feature/issues/1349)
+
+
+
+
+
 # [4.4.0](https://github.com/Lundalogik/lime-web-components/compare/v4.3.5...v4.4.0) (2020-09-14)
 
 
