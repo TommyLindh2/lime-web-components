@@ -28,6 +28,13 @@ export interface LimeobjectsStateService extends StateService {
     ): Promise<ObjectResponse>;
 
     /**
+     * Loads a schema for the limetype.
+     *
+     * @param {string} limetype name of the limetype of the owning limeobject
+     */
+    loadSchema(limetype: string): Promise<ObjectResponse>;
+
+    /**
      * Reload the specified limeobject and update corresponding views in the webclient
      *
      * NOTE: This is just a temporary method that can be used to get around some quirks in the current version of the
