@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/Lundalogik/lime-web-components/compare/v4.4.1...v4.5.0) (2020-10-15)
+
+
+### Features
+
+* **limeobject:** add method for loading schema ([e516ec4](https://github.com/Lundalogik/lime-web-components/commit/e516ec454d096c60be6ba509a2a7dd25246b9e99)), closes [Lundalogik/crm-feature#1476](https://github.com/Lundalogik/crm-feature/issues/1476)
+
+
+
+
+
 ## [4.4.1](https://github.com/Lundalogik/lime-web-components/compare/v4.4.0...v4.4.1) (2020-09-21)
 
 
