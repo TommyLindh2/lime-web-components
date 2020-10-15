@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.1](https://github.com/Lundalogik/lime-web-components/compare/v4.5.0...v4.5.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* **limeobject:** fix return type of `LimeobjectsStateService.loadSchema` ([bc1f6e2](https://github.com/Lundalogik/lime-web-components/commit/bc1f6e2c85914d5ea6da4742e38aa421937f5048))
+* **limeobject:** make accidentally breaking change non-breaking ([e696cfe](https://github.com/Lundalogik/lime-web-components/commit/e696cfe1a7ebe08ed6d5e49fefb5e153646a2a4e))
+
+
+
+
+
 # [4.5.0](https://github.com/Lundalogik/lime-web-components/compare/v4.4.1...v4.5.0) (2020-10-15)
 
 
