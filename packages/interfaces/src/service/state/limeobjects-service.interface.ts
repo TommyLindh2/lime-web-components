@@ -32,7 +32,7 @@ export interface LimeobjectsStateService extends StateService {
      *
      * @param {string} limetype name of the limetype of the owning limeobject
      */
-    loadSchema?(limetype: string): Promise<ObjectResponse>;
+    loadSchema?(limetype: string): Promise<object>;
 
     /**
      * Reload the specified limeobject and update corresponding views in the webclient
