@@ -7,6 +7,12 @@ import {
 } from '@limetech/lime-web-components-interfaces';
 import { getElement } from '@stencil/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { LimeobjectsOptions } from './state/limeobjects';
+
+type OptionFactory = (
+    options: LimeobjectsOptions,
+    component: LimeWebComponent
+) => StateOptions;
 
 export interface StateDecoratorConfig {
     /**
@@ -18,6 +24,16 @@ export interface StateDecoratorConfig {
      * Name of the method on the service to use
      */
     method?: string;
+
+    /**
+     * Factory for creating options dynamically
+     *
+     * @param {StateOptions} options decorator options
+     * @param {LimeWebComponent} component the web component
+     *
+     * @returns {StateOptions} state options
+     */
+    optionFactory?: OptionFactory;
 }
 
 interface Component {
@@ -31,12 +47,16 @@ interface Component {
 interface Property {
     name: string;
     options: StateOptions;
+    optionFactory?: OptionFactory;
     service: {
         name: string;
         method: string;
     };
 }
 
+function defaultOptionFactory(options: StateOptions) {
+    return options;
+}
 /**
  * Create a new state decorator
  *
@@ -45,6 +65,7 @@ interface Property {
  *
  * @returns {Function} state decorator
  */
+
 export function createStateDecorator(
     options: StateOptions,
     config: StateDecoratorConfig
@@ -97,6 +118,7 @@ function getComponentProperties(
     properties.push({
         options: options,
         name: property,
+        optionFactory: config.optionFactory || defaultOptionFactory,
         service: {
             name: config.name,
             method: config.method || 'subscribe',
@@ -152,6 +174,7 @@ function createConnectedCallback(original: Function, properties: Property[]) {
         contextObservables.set(this, observable);
 
         properties.forEach((property) => {
+            property.options = property.optionFactory(property.options, this);
             if (isContextAware(property.options)) {
                 property.options.context = observable;
             }
