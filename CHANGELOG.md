@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.2](https://github.com/Lundalogik/lime-web-components/compare/v4.5.1...v4.5.2) (2020-10-23)
+
+
+### Bug Fixes
+
+* **lime-plugin-loader.interface:** make deprecated `componentDidUnload` method optional ([e5b4365](https://github.com/Lundalogik/lime-web-components/commit/e5b43654bd3ba14504fab458f4bd507f4f3afe0d))
+
+
+
+
+
 ## [4.5.1](https://github.com/Lundalogik/lime-web-components/compare/v4.5.0...v4.5.1) (2020-10-15)
 
 

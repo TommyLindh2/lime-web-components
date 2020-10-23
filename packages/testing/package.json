@@ -1,6 +1,6 @@
 {
   "name": "@limetech/lime-web-components-testing",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "author": "Lime Technologies",
   "homepage": "https://github.com/Lundalogik/lime-web-components",
   "license": "Apache-2.0",
@@ -31,6 +31,6 @@
     "url": "https://github.com/Lundalogik/lime-web-components/issues"
   },
   "dependencies": {
-    "@limetech/lime-web-components-interfaces": "^4.5.1"
+    "@limetech/lime-web-components-interfaces": "^4.5.2"
   }
 }
