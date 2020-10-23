@@ -27,13 +27,12 @@ export interface LimePluginLoader extends LimeWebComponent {
 
     /**
      * This method will never be called since the component will live
-     * during the whole lifespan of the application. It must still be
-     * present on the component though.
+     * during the whole lifespan of the application.
      *
      * @deprecated this method has been deprecated and consumers should
      * use `disconnectedCallback` instead
      */
-    componentDidUnload(): void | Promise<any>;
+    componentDidUnload?(): void | Promise<any>;
 
     /**
      * This method will be invoked every time the component is removed from
