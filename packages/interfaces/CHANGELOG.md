@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/Lundalogik/lime-web-components/compare/v4.5.2...v4.6.0) (2020-10-29)
+
+
+### Features
+
+* **interface/limeobject:** improve working with limeobjects ([9f7f598](https://github.com/Lundalogik/lime-web-components/commit/9f7f598eea337aa3bb1d69bbfa686e53d55bb686)), closes [#239](https://github.com/Lundalogik/lime-web-components/issues/239)
+
+
+
+
+
 ## [4.5.2](https://github.com/Lundalogik/lime-web-components/compare/v4.5.1...v4.5.2) (2020-10-23)
 
 

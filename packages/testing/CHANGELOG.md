@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/Lundalogik/lime-web-components/compare/v4.5.2...v4.6.0) (2020-10-29)
+
+**Note:** Version bump only for package @limetech/lime-web-components-testing
+
+
+
+
+
 ## [4.5.2](https://github.com/Lundalogik/lime-web-components/compare/v4.5.1...v4.5.2) (2020-10-23)
 
 **Note:** Version bump only for package @limetech/lime-web-components-testing
