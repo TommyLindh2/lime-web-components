@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](https://github.com/Lundalogik/lime-web-components/compare/v4.7.0...v4.8.0) (2020-11-03)
+
+
+### Features
+
+* **save-object:** add save-object command ([d3017bb](https://github.com/Lundalogik/lime-web-components/commit/d3017bb7df62c13dc5482f800f559fb56af08f44)), closes [Lundalogik/crm-feature#1491](https://github.com/Lundalogik/crm-feature/issues/1491)
+
+
+
+
+
 # [4.7.0](https://github.com/Lundalogik/lime-web-components/compare/v4.6.0...v4.7.0) (2020-10-30)
 
 
