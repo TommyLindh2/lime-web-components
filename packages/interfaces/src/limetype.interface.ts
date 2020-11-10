@@ -7,6 +7,15 @@ export interface Limetype {
         plural: string;
     };
     properties: Properties;
+
+    /**
+     * Get a property by name
+     *
+     * @param {string} propertyName name of property to get
+     * @throws Will throw an error containing the name of the missing property
+     */
+    getProperty?(propertyName: string): Property;
+
     [key: string]: any;
 }
 
