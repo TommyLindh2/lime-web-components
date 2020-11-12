@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.9.0](https://github.com/Lundalogik/lime-web-components/compare/v4.8.0...v4.9.0) (2020-11-12)
+
+
+### Features
+
+* add getProperty function ([125ad28](https://github.com/Lundalogik/lime-web-components/commit/125ad2888bb7452040596c7f9b4c4211cd28ea0b))
+
+
+
+
+
 # [4.6.0](https://github.com/Lundalogik/lime-web-components/compare/v4.5.2...v4.6.0) (2020-10-29)
 
 
