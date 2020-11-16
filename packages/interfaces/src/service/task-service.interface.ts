@@ -74,3 +74,29 @@ export interface TaskStatus {
      */
     result?: string;
 }
+
+/**
+ * Events dispatched by the task service
+ */
+export enum TaskEvent {
+    /**
+     * Dispatched when a task has been created.
+     *
+     * @detail { task }
+     */
+    Created = 'task.created',
+
+    /**
+     * Dispatched when the task has successfully been completed
+     *
+     * @detail { task }
+     */
+    Success = 'task.success',
+
+    /**
+     * Dispatched if an error occured while running the task
+     *
+     * @detail { task, error? }
+     */
+    Failed = 'task.failed',
+}
