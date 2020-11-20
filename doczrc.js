@@ -28,13 +28,7 @@ export default {
         },
         {
             name: 'Tutorials',
-            menu: [
-                'Hello, world!',
-                'Hello, CRM!',
-                'Hello, Grid!',
-                'Hello, Command!',
-                'Hello, Event!',
-            ],
+            menu: ['Web Client Start Page'],
         },
         {
             name: 'API reference',
