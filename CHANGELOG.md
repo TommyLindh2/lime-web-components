@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.10.0](https://github.com/Lundalogik/lime-web-components/compare/v4.9.0...v4.10.0) (2020-11-20)
+
+
+### Features
+
+* **task service:** add task events dispatched by the task service ([d33d0b4](https://github.com/Lundalogik/lime-web-components/commit/d33d0b43a2b7e9dd13f3a78ac66e8027ee375c49)), closes [Lundalogik/crm-feature#1591](https://github.com/Lundalogik/crm-feature/issues/1591)
+
+
+
+
+
 # [4.9.0](https://github.com/Lundalogik/lime-web-components/compare/v4.8.0...v4.9.0) (2020-11-12)
 
 
