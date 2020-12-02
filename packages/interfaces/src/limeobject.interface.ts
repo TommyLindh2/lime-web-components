@@ -25,14 +25,16 @@ export interface LimeObject {
     descriptive: string;
 
     /**
-     * A function to get related data
+     * Get related data of the object
      *
      * @param {Property} property the property of the related object
      */
     getRelation(property: Property): LimeObject;
 
     /**
-     * A function to get the limetype of the related object
+     * Get the limetype of the object
+     *
+     * @returns {Limetype} the limetype
      */
     getLimetype(): Limetype;
 
