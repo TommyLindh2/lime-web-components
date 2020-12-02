@@ -11,10 +11,16 @@ export interface Limetype {
     /**
      * Get a property by name
      *
-     * @param {string} propertyName name of property to get
+     * @param {string} name name of property to get. Allows a path to be
+     * specified using dot notation to get properties of relations
+     *
      * @throws Will throw an error containing the name of the missing property
+     * @returns {Property} the property specified by the name argument
+     *
+     * @example
+     * const phoneProperty = dealLimetype.getProperty('company.phone')
      */
-    getProperty?(propertyName: string): Property;
+    getProperty?(name: string): Property;
 
     [key: string]: any;
 }
