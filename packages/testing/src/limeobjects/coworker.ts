@@ -1,3 +1,5 @@
+import { getLimetype } from '.';
+
 export const coworker = [
     {
         name: 'Lime Test user',
@@ -99,4 +101,9 @@ export const coworker = [
         descriptive: 'Administrator ',
         office: null,
     },
-];
+].map((data) => {
+    return {
+        ...data,
+        getLimetype: () => getLimetype('coworker'),
+    };
+});

@@ -3,6 +3,7 @@ import { coworker } from './coworker';
 import { deal } from './deal';
 import { person } from './person';
 import { document } from './document';
+import { limetypes } from '../limetypes';
 
 export const limeobjects = {
     company: company,
@@ -26,3 +27,6 @@ export const limeobjects = {
     target: [],
     consent: [],
 };
+
+export const getLimetype = (limetype: string) => limetypes[limetype];
+

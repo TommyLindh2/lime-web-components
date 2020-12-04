@@ -1,3 +1,5 @@
+import { getLimetype } from '.';
+
 export const company = [
     {
         name: 'Lime Technologies A/S',
@@ -649,4 +651,9 @@ export const company = [
         descriptive: 'Lime Technologies AB',
         coworker: null,
     },
-];
+].map((data) => {
+    return {
+        ...data,
+        getLimetype: () => getLimetype('company'),
+    };
+});

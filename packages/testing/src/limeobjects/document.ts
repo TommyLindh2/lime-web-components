@@ -1,3 +1,5 @@
+import { getLimetype } from '.';
+
 export const document = [
     {
         iddocument: 1001,
@@ -71,4 +73,9 @@ export const document = [
         campaign: null,
         solutionimprovement: null,
     },
-];
+].map((data) => {
+    return {
+        ...data,
+        getLimetype: () => getLimetype('document'),
+    };
+});

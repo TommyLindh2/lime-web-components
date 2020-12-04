@@ -1,3 +1,5 @@
+import { getLimetype } from '.';
+
 export const person = [
     {
         firstname: 'Andreas',
@@ -1151,4 +1153,9 @@ export const person = [
         descriptive: 'David Waterwood',
         company: 1007,
     },
-];
+].map((data) => {
+    return {
+        ...data,
+        getLimetype: () => getLimetype('person'),
+    };
+});

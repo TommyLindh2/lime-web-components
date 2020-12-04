@@ -1,3 +1,5 @@
+import { getLimetype } from '.';
+
 export const deal = [
     {
         dealstatus: 'tender',
@@ -437,4 +439,9 @@ export const deal = [
         company: 1001,
         todo2: null,
     },
-];
+].map((data) => {
+    return {
+        ...data,
+        getLimetype: () => getLimetype('deal'),
+    };
+});
