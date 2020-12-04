@@ -1,4 +1,4 @@
-import { getBackreference, getLimetype } from '.';
+import { getBackreference, getLimetype, getProperty } from '.';
 
 export const office = {
     name: 'office',
@@ -8,6 +8,7 @@ export const office = {
     },
     sort_order: 10,
     label: null,
+    getProperty: (property: string) => getProperty('office', property),
     properties: {
         name: {
             name: 'name',

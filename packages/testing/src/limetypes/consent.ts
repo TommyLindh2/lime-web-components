@@ -1,4 +1,4 @@
-import { getBackreference, getLimetype } from '.';
+import { getBackreference, getLimetype, getProperty } from '.';
 
 export const consent = {
     name: 'consent',
@@ -8,6 +8,7 @@ export const consent = {
     },
     sort_order: 18,
     label: null,
+    getProperty: (property: string) => getProperty('consent', property),
     properties: {
         consenttype: {
             name: 'consenttype',

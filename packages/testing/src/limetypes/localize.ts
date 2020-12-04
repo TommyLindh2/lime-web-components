@@ -1,3 +1,5 @@
+import { getProperty } from '.';
+
 export const localize = {
     name: 'localize',
     localname: {
@@ -6,6 +8,7 @@ export const localize = {
     },
     sort_order: 17,
     label: null,
+    getProperty: (property: string) => getProperty('localize', property),
     properties: {
         owner: {
             name: 'owner',

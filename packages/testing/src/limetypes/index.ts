@@ -52,3 +52,23 @@ export function getLimetype(name: string): Limetype {
 export function getBackreference(limetype: string, property: string): Property {
     return limetypes[limetype].properties[property];
 }
+
+export function getProperty(limetype: string, property: string) {
+    const path = property.split('.');
+
+    if (path.length > 1) {
+        const name = path.shift();
+        const relatedProperty = getProperty(limetype, name);
+        const relatedLimetype = relatedProperty.relation.getLimetype();
+
+        return getProperty(relatedLimetype.name, path.join('.'));
+    }
+
+    if (property in limetypes[limetype].properties) {
+        return limetypes[limetype].properties[property];
+    }
+
+    throw new Error(
+        `Limetype '${limetype}' has no property named '${property}'`
+    );
+}

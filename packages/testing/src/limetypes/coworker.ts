@@ -1,4 +1,4 @@
-import { getBackreference, getLimetype } from '.';
+import { getBackreference, getLimetype, getProperty } from '.';
 
 export const coworker = {
     name: 'coworker',
@@ -8,6 +8,7 @@ export const coworker = {
     },
     sort_order: 9,
     label: 'user',
+    getProperty: (property: string) => getProperty('coworker', property),
     properties: {
         name: {
             name: 'name',
