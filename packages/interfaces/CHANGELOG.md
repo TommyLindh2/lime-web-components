@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.11.0](https://github.com/Lundalogik/lime-web-components/compare/v4.10.1...v4.11.0) (2020-12-04)
+
+
+### Features
+
+* **limeobject:** deprecate getRelation in favor of getValue ([5b68948](https://github.com/Lundalogik/lime-web-components/commit/5b689482db407bfc88be77c0a242f6e63a07f26c)), closes [Lundalogik/crm-feature#1621](https://github.com/Lundalogik/crm-feature/issues/1621)
+* **limetype:** allow nested properties to be retrieved by getProperty ([a44e9d2](https://github.com/Lundalogik/lime-web-components/commit/a44e9d2d81a645ac15562a0cd62fe0f35805e4a4))
+
+
+
+
+
 # [4.10.0](https://github.com/Lundalogik/lime-web-components/compare/v4.9.0...v4.10.0) (2020-11-20)
 
 

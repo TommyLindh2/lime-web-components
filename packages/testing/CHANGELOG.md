@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.11.0](https://github.com/Lundalogik/lime-web-components/compare/v4.10.1...v4.11.0) (2020-12-04)
+
+
+### Bug Fixes
+
+* **testing:** add getLimetype method to limeobjects ([9e9a48d](https://github.com/Lundalogik/lime-web-components/commit/9e9a48dbe2cc771e7855932f9832145147c081c9))
+* **testing:** add getProperty method to limetypes ([fc1da46](https://github.com/Lundalogik/lime-web-components/commit/fc1da46f58c0e8f7486f0030315252b7bca70cd8))
+* **testing:** add getValue method to limeobjects ([5ff2fbb](https://github.com/Lundalogik/lime-web-components/commit/5ff2fbb96116f6158b5c33b2f2cdc65a511654a0))
+
+
+
+
+
 # [4.10.0](https://github.com/Lundalogik/lime-web-components/compare/v4.9.0...v4.10.0) (2020-11-20)
 
 **Note:** Version bump only for package @limetech/lime-web-components-testing
