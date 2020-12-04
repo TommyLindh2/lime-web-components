@@ -1,4 +1,4 @@
-import { getLimetype } from '.';
+import { getLimetype, getValue } from '.';
 
 export const document = [
     {
@@ -74,8 +74,11 @@ export const document = [
         solutionimprovement: null,
     },
 ].map((data) => {
-    return {
+    const limeobject = {
         ...data,
         getLimetype: () => getLimetype('document'),
+        getValue: (property: string) => getValue(property, limeobject),
     };
+
+    return limeobject;
 });
