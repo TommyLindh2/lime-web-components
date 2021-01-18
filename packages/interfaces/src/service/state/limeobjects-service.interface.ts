@@ -11,6 +11,19 @@ export interface LimeobjectsStateService extends StateService {
     loadObject(limetype: string, id: number): void;
 
     /**
+     * Load objects of the specified limetype into the state
+     *
+     * @param {string} limetype name of the limetype
+     * @param {LoadOptions} options options about the objects to load
+     *
+     * @returns {ObjectResponse} list of objects together with total count of objects
+     */
+    loadObjects?(
+        limetype: string,
+        options?: LoadOptions
+    ): Promise<ObjectResponse>;
+
+    /**
      * Load related objects into the state
      *
      * @param {string} limetype name of the limetype of the owning limeobject
