@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.13.0](https://github.com/Lundalogik/lime-web-components/compare/v4.12.0...v4.13.0) (2021-01-20)
+
+
+### Features
+
+* **interfaces:** add loadObjects method to limeobjects state service ([d423e77](https://github.com/Lundalogik/lime-web-components/commit/d423e772f6057517700a05bbcda47653d5405413)), closes [Lundalogik/crm-feature#1754](https://github.com/Lundalogik/crm-feature/issues/1754)
+
+
+
+
+
 # [4.12.0](https://github.com/Lundalogik/lime-web-components/compare/v4.11.0...v4.12.0) (2020-12-11)
 
 
