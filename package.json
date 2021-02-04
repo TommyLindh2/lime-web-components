@@ -19,7 +19,7 @@
     "postpublish:dry-run": "npm run docz:publish -- --v=current --dryRun"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^9.1.1",
+    "@commitlint/config-conventional": "^11.0.0",
     "@stencil/core": "^1.16.2",
     "@stencil/eslint-plugin": "^0.3.1",
     "@types/jest": "25.2.3",
