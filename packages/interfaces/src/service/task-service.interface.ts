@@ -31,6 +31,7 @@ export interface TaskService extends StateService {
     getStatus(ids: string[]): Promise<TaskStatus[]>;
 }
 
+// eslint-disable-next-line no-shadow
 export enum TaskState {
     /**
      * Task state is unknown
@@ -78,6 +79,7 @@ export interface TaskStatus {
 /**
  * Events dispatched by the task service
  */
+// eslint-disable-next-line no-shadow
 export enum TaskEvent {
     /**
      * Dispatched when a task has been created.
@@ -96,7 +98,7 @@ export enum TaskEvent {
     /**
      * Dispatched if an error occured while running the task
      *
-     * @detail { task, error? }
+     * @detail { task | error? }
      */
     Failed = 'task.failed',
 }

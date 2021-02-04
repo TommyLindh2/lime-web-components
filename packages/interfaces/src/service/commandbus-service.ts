@@ -67,6 +67,7 @@ export interface CommandMiddleware {
 /**
  * Events dispatched by the commandbus event middleware
  */
+// eslint-disable-next-line no-shadow
 export enum CommandEvent {
     /**
      * Dispatched when the command has been received by the commandbus.
@@ -79,14 +80,14 @@ export enum CommandEvent {
     /**
      * Dispatched when the command has been handled by the commandbus
      *
-     * @detail { command, result }
+     * @detail { command | result }
      */
     Handled = 'command.handled',
 
     /**
      * Dispatched if an error occurs while handling the command
      *
-     * @detail { command, error }
+     * @detail { command | error }
      */
     Failed = 'command.failed',
 }

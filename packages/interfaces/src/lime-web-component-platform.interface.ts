@@ -33,6 +33,7 @@ export interface LimeWebComponentPlatform {
 /**
  * Core platform service names
  */
+// eslint-disable-next-line no-shadow
 export enum PlatformServiceName {
     Translate = 'translate',
     Http = 'http',

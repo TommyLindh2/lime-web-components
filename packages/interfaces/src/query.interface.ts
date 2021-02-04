@@ -22,6 +22,7 @@ export interface Expression {
     type?: 'filter';
 }
 
+// eslint-disable-next-line no-shadow
 export enum Operator {
     AND = 'AND',
     OR = 'OR',
