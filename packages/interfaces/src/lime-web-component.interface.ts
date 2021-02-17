@@ -1,17 +1,8 @@
-import { LimeWebComponentContext } from './lime-web-component-context.interface';
-import { LimeWebComponentPlatform } from './lime-web-component-platform.interface';
+import { LimeWebComponent as Base } from '../../lime-web-components/src';
 
 /**
- * Interface that Lime Web Components must implement
+ * @inheritdoc
+ *
+ * @deprecated use interface with same name from `@limetech/lime-web-components` instead
  */
-export interface LimeWebComponent {
-    /**
-     * Reference to the platform
-     */
-    platform: LimeWebComponentPlatform;
-
-    /**
-     * The context this component belongs to
-     */
-    context: LimeWebComponentContext;
-}
+export interface LimeWebComponent extends Base {}
