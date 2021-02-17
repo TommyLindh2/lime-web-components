@@ -8,11 +8,8 @@ export interface LimePluginLoader extends LimeWebComponent {
      * This method will be invoked every time the component is inserted into
      * the DOM. For a plugin loader component, it should happen only once. The
      * method must be present on the component for technical reasons.
-     *
-     * @note this method will be required on the interface in the next breaking
-     * release
      */
-    connectedCallback?(): void | Promise<any>;
+    connectedCallback(): void | Promise<any>;
 
     /**
      * Do any initializations required for the plugin in this method
@@ -30,9 +27,6 @@ export interface LimePluginLoader extends LimeWebComponent {
      * the DOM. For a plugin loader component, it should never happen since
      * the component will live during the whole lifespan of the application.
      * The method must be present on the component for technical reasons.
-     *
-     * @note this method will be required on the interface in the next breaking
-     * release
      */
-    disconnectedCallback?(): void | Promise<any>;
+    disconnectedCallback(): void | Promise<any>;
 }

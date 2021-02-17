@@ -5,7 +5,7 @@ import { LimePluginLoader as Base } from '../../lime-web-components/src';
  *
  * @deprecated use interface with same name from `@limetech/lime-web-components` instead
  */
-export interface LimePluginLoader extends Base {
+export interface LimePluginLoader extends Partial<Base> {
     /**
      * This method will never be called since the component will live
      * during the whole lifespan of the application.
