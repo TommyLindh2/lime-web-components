@@ -39,7 +39,7 @@
     "jest-cli": "^26.6.3",
     "lerna": "^3.22.1",
     "prettier": "^2.2.1",
-    "replace-in-file": "^6.1.0",
+    "replace-in-file": "^6.2.0",
     "shelljs": "0.8.4",
     "typedoc": "0.17.7",
     "typedoc-plugin-markdown": "~2.3.0",
