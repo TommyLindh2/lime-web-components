@@ -2,6 +2,8 @@ import { LimeWebComponentContext } from './lime-web-component-context.interface'
 
 /**
  * Interface that actions must implement
+ *
+ * @deprecated
  */
 export interface LimeWebComponentAction {
     /**
