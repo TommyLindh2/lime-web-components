@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
-    "@stencil/core": "^1.16.2",
+    "@stencil/core": "^2.4.0",
     "@stencil/eslint-plugin": "^0.3.1",
     "@types/jest": "25.2.3",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
