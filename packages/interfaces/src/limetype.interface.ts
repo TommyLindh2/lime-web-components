@@ -1,130 +1,74 @@
-export interface Limetype {
-    name: string;
-    label: string;
-    acl: Acl;
-    localname: {
-        singular: string;
-        plural: string;
-    };
-    properties: Properties;
+import {
+    LimeType,
+    LimeProperty,
+    PropertyType as BasePropertyType,
+    Acl as BaseAcl,
+    isRelation as baseIsRelation,
+    isSingleRelation as baseIsSingleRelation,
+    isDate as baseIsDate,
+    isString as baseIsString,
+    isFloat as baseIsFloat,
+} from '../../lime-web-components/src';
 
-    /**
-     * Get a property by name
-     *
-     * @param {string} name name of property to get. Allows a path to be
-     * specified using dot notation to get properties of relations
-     *
-     * @throws Will throw an error containing the name of the missing property
-     * @returns {Property} the property specified by the name argument
-     *
-     * @example
-     * const phoneProperty = dealLimetype.getProperty('company.phone')
-     */
-    getProperty?(name: string): Property;
-
+/**
+ * @deprecated has been renamed to better align with the Python class from
+ * `lime-core`. Use `LimeType` from `@limetech/lime-web-components` instead.
+ */
+export interface Limetype extends Partial<LimeType> {
     [key: string]: any;
 }
 
+/**
+ * @deprecated use `Record<string, LimeType> instead`
+ */
 export interface Limetypes {
     [name: string]: Limetype;
 }
 
-export interface Property {
-    acl: Acl;
-    defaultvalue: any;
-    fieldorder: number;
-    has_sql?: boolean; // eslint-disable-line camelcase
-    label: string;
-    localname: string;
-    name: string;
-    required: boolean;
-    type: PropertyType;
-    options?: Array<{
-        key: string;
-        inactive: boolean;
-        text: string;
-        order?: number;
-        id?: number;
-    }>;
-    relation?: {
-        getLimetype: () => Limetype;
-        getBackreference: () => Property;
-    };
-}
+/**
+ * @deprecated has been renamed to better align with the Python class from
+ * `lime-core`. Use `LimeProperty` from `@limetech/lime-web-components` instead.
+ */
+export interface Property extends LimeProperty {}
 
+/**
+ * @deprecated use `Record<string, LimeProperty> instead`
+ */
 export interface Properties {
     [name: string]: Property;
 }
 
-export type PropertyType =
-    | 'string'
-    | 'text'
-    | 'phone'
-    | 'integer'
-    | 'decimal'
-    | 'percent'
-    | 'time'
-    | 'date'
-    | 'year'
-    | 'quarter'
-    | 'month'
-    | 'yesno'
-    | 'link'
-    | 'user'
-    | 'xml'
-    | 'option'
-    | 'set'
-    | 'file'
-    | 'hasone'
-    | 'hasmany'
-    | 'belongsto'
-    | 'hasandbelongstomany'
-    | 'system';
+/**
+ * @deprecated use type with same name from `@limetech/lime-web-components` instead
+ */
+export type PropertyType = BasePropertyType;
 
-export interface Acl {
-    delete: boolean;
-    read: boolean;
-    update: boolean;
-    create: boolean;
-}
+/**
+ * @deprecated use interface with same name from `@limetech/lime-web-components` instead
+ */
+export interface Acl extends BaseAcl {}
 
-export function isRelation(property: Property) {
-    const propTypes: PropertyType[] = [
-        'belongsto',
-        'hasone',
-        'hasmany',
-        'hasandbelongstomany',
-    ];
+/**
+ * @deprecated use function with same name from `@limetech/lime-web-components` instead
+ */
+export const isRelation = baseIsRelation;
 
-    return property && propTypes.includes(property.type);
-}
+/**
+ * @deprecated use function with same name from `@limetech/lime-web-components` instead
+ */
+export const isSingleRelation = baseIsSingleRelation;
 
-export function isSingleRelation(property: Property) {
-    const propTypes: PropertyType[] = ['belongsto', 'hasone'];
+/**
+ * @deprecated use function with same name from `@limetech/lime-web-components` instead
+ */
+export const isDate = baseIsDate;
 
-    return property && propTypes.includes(property.type);
-}
+/**
+ * @deprecated use function with same name from `@limetech/lime-web-components` instead
+ */
+export const isString = baseIsString;
 
-export function isDate(property: Property) {
-    const propTypes: PropertyType[] = [
-        'time',
-        'date',
-        'year',
-        'quarter',
-        'month',
-    ];
-
-    return property && propTypes.includes(property.type);
-}
-
-export function isString(property: Property) {
-    const propTypes: PropertyType[] = ['string', 'text', 'phone', 'link'];
-
-    return property && propTypes.includes(property.type);
-}
-
-export function isFloat(property: Property) {
-    const propTypes: PropertyType[] = ['decimal', 'percent'];
-
-    return property && propTypes.includes(property.type);
-}
+/**
+ * @deprecated use function with same name from `@limetech/lime-web-components` instead
+ */
+export const isFloat = baseIsFloat;
