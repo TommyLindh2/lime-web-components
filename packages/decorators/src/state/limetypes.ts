@@ -2,7 +2,7 @@ import {
     ContextAwareStateOptions,
     PlatformServiceName,
     StateOptions,
-} from '@limetech/lime-web-components-interfaces';
+} from '../../../interfaces/src';
 import { createStateDecorator, StateDecoratorConfig } from '../factory';
 
 export interface LimetypesOptions extends StateOptions {

@@ -3,7 +3,7 @@ import {
     PlatformServiceName,
     StateOptions,
     LimeWebComponent,
-} from '@limetech/lime-web-components-interfaces';
+} from '../../../interfaces/src';
 import { createStateDecorator, StateDecoratorConfig } from '../factory';
 
 /**

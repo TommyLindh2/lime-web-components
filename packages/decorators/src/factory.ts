@@ -1,10 +1,9 @@
+import { ContextAwareStateOptions, StateOptions } from '../../interfaces/src';
 import {
-    ContextAwareStateOptions,
     LimeWebComponent,
     LimeWebComponentContext,
     LimeWebComponentPlatform,
-    StateOptions,
-} from '@limetech/lime-web-components-interfaces';
+} from '../../lime-web-components/src';
 import { getElement } from '@stencil/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { LimeobjectsOptions } from './state/limeobjects';

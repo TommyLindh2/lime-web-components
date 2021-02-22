@@ -1,7 +1,4 @@
-import {
-    PlatformServiceName,
-    StateOptions,
-} from '@limetech/lime-web-components-interfaces';
+import { PlatformServiceName, StateOptions } from '../../../interfaces/src';
 import { createStateDecorator, StateDecoratorConfig } from '../factory';
 
 /**
