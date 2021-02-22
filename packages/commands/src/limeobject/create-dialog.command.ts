@@ -1,4 +1,5 @@
-import { Command, Limetype } from '@limetech/lime-web-components-interfaces';
+import { Command } from '../../../interfaces/src';
+import { LimeType } from '../../../lime-web-components/src';
 
 /**
  * Open a dialog for creating a new limeobject or editing a specific limeobject
@@ -17,7 +18,7 @@ export class CreateLimeobjectDialogCommand {
     /**
      * The limetype of the object to create
      */
-    public limetype: Limetype;
+    public limetype: LimeType;
 
     /**
      * Default data to populate the form with

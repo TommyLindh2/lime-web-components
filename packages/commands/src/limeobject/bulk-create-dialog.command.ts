@@ -1,8 +1,5 @@
-import {
-    Command,
-    Expression,
-    Limetype,
-} from '@limetech/lime-web-components-interfaces';
+import { Command, Expression } from '../../../interfaces/src';
+import { LimeType } from '../../../lime-web-components/src';
 
 /**
  * Open a dialog for bulk creating limeobjects
@@ -43,7 +40,7 @@ export class BulkCreateDialogCommand {
     /**
      * The limetype of the objects to create new objects from
      */
-    public limetype: Limetype;
+    public limetype: LimeType;
 
     /**
      * A query describing what limeobjects to create new limeobjects from. Each object from the result will result in a

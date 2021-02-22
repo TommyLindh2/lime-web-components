@@ -1,4 +1,5 @@
-import { Command, Limetype } from '@limetech/lime-web-components-interfaces';
+import { Command } from '../../../interfaces/src';
+import { LimeType } from '../../../lime-web-components/src';
 
 /**
  * Deletes the object from the database
@@ -11,5 +12,5 @@ import { Command, Limetype } from '@limetech/lime-web-components-interfaces';
 })
 export class DeleteObjectCommand {
     id: number;
-    limetype: Limetype;
+    limetype: LimeType;
 }

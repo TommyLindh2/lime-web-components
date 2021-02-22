@@ -1,4 +1,4 @@
-import { Command, LimeObject } from '@limetech/lime-web-components-interfaces';
+import { Command, LimeObject } from '../../../interfaces/src';
 /**
  * Saves the object to the database
  *

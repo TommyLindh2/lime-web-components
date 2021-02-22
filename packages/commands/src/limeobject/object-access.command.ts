@@ -1,4 +1,5 @@
-import { Command, Limetype } from '@limetech/lime-web-components-interfaces';
+import { Command } from '../../../interfaces/src';
+import { LimeType } from '../../../lime-web-components/src';
 
 /**
  * Open a dialog to view and edit object access information
@@ -11,5 +12,5 @@ import { Command, Limetype } from '@limetech/lime-web-components-interfaces';
 })
 export class OpenObjectAccessDialogCommand {
     id: number;
-    limetype: Limetype;
+    limetype: LimeType;
 }
