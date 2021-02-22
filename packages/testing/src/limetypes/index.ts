@@ -1,4 +1,4 @@
-import { Limetype, Property } from '@limetech/lime-web-components-interfaces';
+import { LimeType, LimeProperty } from '../../../lime-web-components/src';
 import { campaign } from './campaign';
 import { company } from './company';
 import { consent } from './consent';
@@ -21,7 +21,7 @@ import { target } from './target';
 import { todo } from './todo';
 import { document } from './document';
 
-export const limetypes: Record<string, Limetype> = {
+export const limetypes: Record<string, LimeType> = {
     company: company,
     solutionimprovement: solutionimprovement,
     mailing: mailing,
@@ -45,11 +45,14 @@ export const limetypes: Record<string, Limetype> = {
     consent: consent,
 } as any;
 
-export function getLimetype(name: string): Limetype {
+export function getLimetype(name: string): LimeType {
     return limetypes[name];
 }
 
-export function getBackreference(limetype: string, property: string): Property {
+export function getBackreference(
+    limetype: string,
+    property: string
+): LimeProperty {
     return limetypes[limetype].properties[property];
 }
 

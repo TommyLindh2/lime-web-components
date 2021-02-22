@@ -1,7 +1,7 @@
 import {
     LimeWebComponentContext,
     LimeWebComponentPlatform,
-} from '@limetech/lime-web-components-interfaces';
+} from '../../../lime-web-components/src';
 
 /**
  * A platform suitable for testing
