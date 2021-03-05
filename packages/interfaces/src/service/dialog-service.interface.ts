@@ -18,6 +18,14 @@ export interface DialogService {
     ): number;
 
     /**
+     * Update an existing dialog with new properties
+     *
+     * @param id the dialog identifier
+     * @param properties any properties to send to the dialog
+     */
+    update?(id: number, properties?: DialogProperties): void;
+
+    /**
      * Destroy a dialog
      *
      * @param id id representing the dialog
