@@ -1,6 +1,6 @@
 # Lime Web Components
 
-This package contains the master library for Lime Web Components. It simply wraps all of its sibling packages up into one comprehensive library for convenience.
+This package contains the main library for Lime Web Components. It simply wraps all of its sibling packages up into one comprehensive library for convenience.
 
 Lime Web Components are web components that are used to customize [Lime CRM](https://lime-crm.se/). Components are built using [StencilJS](https://stenciljs.com/docs/introduction), which uses [TypeScript](https://www.typescriptlang.org), [JSX](https://reactjs.org/docs/introducing-jsx.html) and [reactive](https://en.wikipedia.org/wiki/Reactive_programming) data-binding.
 
