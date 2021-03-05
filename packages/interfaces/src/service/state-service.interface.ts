@@ -43,4 +43,5 @@ export interface ContextAwareStateOptions extends StateOptions {
     context?: Observable<LimeWebComponentContext>;
 }
 
+export * from './state/config-service.interface';
 export * from './state/limeobjects-service.interface';
