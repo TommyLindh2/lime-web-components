@@ -1,7 +1,7 @@
-git checkout master
+git checkout main
 git remote rm origin
 git remote add origin "https://${GH_TOKEN}@github.com/lundalogik/lime-web-components.git"
-git push --set-upstream origin master
+git push --set-upstream origin main
 
 git config --global user.email "${GIT_AUTHOR_EMAIL}"
 git config --global user.name "${GIT_AUTHOR_NAME}"
