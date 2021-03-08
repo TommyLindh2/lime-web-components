@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.15.0](https://github.com/Lundalogik/lime-web-components/compare/v4.14.0...v4.15.0) (2021-03-08)
+
+
+### Features
+
+* **interfaces:** create interface for config state service ([f631b1f](https://github.com/Lundalogik/lime-web-components/commit/f631b1f18662442c46d9cf53167f864a9614e0a8))
+
+
+
+
+
 # [4.14.0](https://github.com/Lundalogik/lime-web-components/compare/v4.13.3...v4.14.0) (2021-03-08)
 
 
