@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.14.0](https://github.com/Lundalogik/lime-web-components/compare/v4.13.3...v4.14.0) (2021-03-08)
+
+
+### Features
+
+* **interfaces:** add "update" method to dialog service ([6378e3e](https://github.com/Lundalogik/lime-web-components/commit/6378e3e858c654478239883d6404c7af03a37281))
+
+
+
+
+
 ## [4.13.3](https://github.com/Lundalogik/lime-web-components/compare/v4.13.2...v4.13.3) (2021-03-05)
 
 **Note:** Version bump only for package lime-web-components
