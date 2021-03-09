@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.16.0](https://github.com/Lundalogik/lime-web-components/compare/v4.15.0...v4.16.0) (2021-03-09)
+
+
+### Features
+
+* **interfaces:** add userdata service ([afab0ef](https://github.com/Lundalogik/lime-web-components/commit/afab0ef4a9719485c2974814b8678f3cdd6af7de))
+
+
+
+
+
 # [4.15.0](https://github.com/Lundalogik/lime-web-components/compare/v4.14.0...v4.15.0) (2021-03-08)
 
 
