@@ -54,9 +54,14 @@ export const defaultContext: LimeWebComponentContext = {
  */
 function createServiceProxy(service: any) {
     const handler = {
-        get: (target: any, prop: string) => {
-            if (prop in target) {
-                return target[prop];
+        get: (target: any, prop: string, receiver: any) => {
+            let value = Reflect.get(target, prop, receiver);
+            if (value) {
+                if (typeof value === 'function') {
+                    value = value.bind(target);
+                }
+
+                return value;
             }
 
             return (...args: any[]) => {
