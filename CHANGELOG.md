@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.16.1](https://github.com/Lundalogik/lime-web-components/compare/v4.16.0...v4.16.1) (2021-03-12)
+
+
+### Bug Fixes
+
+* **testing:** bind services registered on the test platform correctly ([5c17b14](https://github.com/Lundalogik/lime-web-components/commit/5c17b140b1c95baae74e38d5b0d599ea1da55dc6))
+
+
+
+
+
 # [4.16.0](https://github.com/Lundalogik/lime-web-components/compare/v4.15.0...v4.16.0) (2021-03-09)
 
 
