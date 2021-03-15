@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.17.0](https://github.com/Lundalogik/lime-web-components/compare/v4.16.1...v4.17.0) (2021-03-15)
+
+
+### Features
+
+* **filter-service:** implement filter service interface ([b00fdc2](https://github.com/Lundalogik/lime-web-components/commit/b00fdc2e841bd68427a956cb0605944cfde50bfb))
+
+
+
+
+
 ## [4.16.1](https://github.com/Lundalogik/lime-web-components/compare/v4.16.0...v4.16.1) (2021-03-12)
 
 
