@@ -44,6 +44,7 @@ export interface ContextAwareStateOptions extends StateOptions {
 }
 
 export * from './state/config-service.interface';
+export * from './state/device-state-service.interface';
 export * from './state/limeobjects-service.interface';
 export * from './state/user-data-service.interface';
 export * from './state/filter-service.interface';
