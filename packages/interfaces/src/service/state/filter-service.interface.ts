@@ -10,4 +10,13 @@ export interface FilterService extends StateService {
      * @returns {Promise<void>} a promise that will be resolved when the filter is saved
      */
     save(filter: Filter): Promise<void>;
+
+    /**
+     * Updates the existing filter
+     *
+     * @param filter a filter to update
+     *
+     * @returns {Promise<void>} a promise that will be resolved when the filter is updated
+     */
+    update(filter: Filter): Promise<void>;
 }
