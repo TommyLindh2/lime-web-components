@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.18.0](https://github.com/Lundalogik/lime-web-components/compare/v4.17.0...v4.18.0) (2021-03-19)
+
+
+### Features
+
+* **interfaces:** add device-state interface ([4797358](https://github.com/Lundalogik/lime-web-components/commit/4797358bd0ea954fe465ed1956e2620f158bb4c9))
+
+
+
+
+
 # [4.17.0](https://github.com/Lundalogik/lime-web-components/compare/v4.16.1...v4.17.0) (2021-03-15)
 
 
