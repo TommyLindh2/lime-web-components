@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.19.0](https://github.com/Lundalogik/lime-web-components/compare/v4.18.0...v4.19.0) (2021-03-23)
+
+
+### Features
+
+* **filter-service:** implement delete method to the filter service interface ([da5ef71](https://github.com/Lundalogik/lime-web-components/commit/da5ef718fa3ab760346e815345ff908d7487a377))
+
+
+
+
+
 # [4.18.0](https://github.com/Lundalogik/lime-web-components/compare/v4.17.0...v4.18.0) (2021-03-19)
 
 
