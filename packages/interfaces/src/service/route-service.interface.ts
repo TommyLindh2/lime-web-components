@@ -23,6 +23,7 @@ export interface RouteService {
      *
      * @param {string} limetype the limetype of the table to route to
      * @param {Expression} filter filter expression to apply to the table
+     * @param {Record<string, any>} params params to use when routing to the table
      */
-    table(limetype: string, filter?: Expression);
+    table(limetype: string, filter?: Expression, params?: Record<string, any>);
 }
