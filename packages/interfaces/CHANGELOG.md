@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.21.0](https://github.com/Lundalogik/lime-web-components/compare/v4.20.0...v4.21.0) (2021-04-14)
+
+
+### Features
+
+* **limetype.interface:** create PropertyOption interface and use it in Property interface ([5c974ed](https://github.com/Lundalogik/lime-web-components/commit/5c974edc5f68b7335cf8d9e09887ad48ed576dd4)), closes [Lundalogik/crm-feature#1828](https://github.com/Lundalogik/crm-feature/issues/1828)
+
+
+
+
+
 # [4.20.0](https://github.com/Lundalogik/lime-web-components/compare/v4.19.0...v4.20.0) (2021-04-01)
 
 
