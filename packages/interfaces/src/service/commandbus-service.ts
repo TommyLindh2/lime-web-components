@@ -31,6 +31,15 @@ export interface CommandBusService extends CommandHandler {
      * @returns {boolean} true if the command is supported, false otherwise
      */
     isSupported(commandId: CommandIdentifier): boolean;
+
+    /**
+     * Get a handler associated with a command
+     *
+     * @param {CommandClass} commandClass The command class
+     *
+     * @returns {CommandHandler} the handler for the command class
+     */
+    getHandler?(commandClass: CommandClass): CommandHandler;
 }
 
 /**
