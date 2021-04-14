@@ -39,17 +39,19 @@ export interface Property {
     name: string;
     required: boolean;
     type: PropertyType;
-    options?: Array<{
-        key: string;
-        inactive: boolean;
-        text: string;
-        order?: number;
-        id?: number;
-    }>;
+    options?: PropertyOption[];
     relation?: {
         getLimetype: () => Limetype;
         getBackreference: () => Property;
     };
+}
+
+export interface PropertyOption {
+    key: string;
+    inactive: boolean;
+    text: string;
+    order?: number;
+    id?: number;
 }
 
 export interface Properties {
