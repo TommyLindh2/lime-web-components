@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.21.1](https://github.com/Lundalogik/lime-web-components/compare/v4.21.0...v4.21.1) (2021-04-15)
+
+
+### Bug Fixes
+
+* **command-bus:** add getHandler type to command bus service ([000e115](https://github.com/Lundalogik/lime-web-components/commit/000e11599bb326820b0bb1664884bd5824c26d88))
+
+
+
+
+
 # [4.21.0](https://github.com/Lundalogik/lime-web-components/compare/v4.20.0...v4.21.0) (2021-04-14)
 
 
