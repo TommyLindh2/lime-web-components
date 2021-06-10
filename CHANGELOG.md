@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.22.0](https://github.com/Lundalogik/lime-web-components/compare/v4.21.1...v4.22.0) (2021-06-10)
+
+
+### Features
+
+* **limetype.interface:** add week and datetime types to PropertyType interface ([310c937](https://github.com/Lundalogik/lime-web-components/commit/310c9373055222fb0ad582a9390a6679f1e17e18))
+
+
+
+
+
 ## [4.21.1](https://github.com/Lundalogik/lime-web-components/compare/v4.21.0...v4.21.1) (2021-04-15)
 
 
