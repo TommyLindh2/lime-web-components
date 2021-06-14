@@ -35,6 +35,7 @@ export interface Property {
     fieldorder: number;
     has_sql?: boolean; // eslint-disable-line camelcase
     label: string;
+    length?: number;
     localname: string;
     name: string;
     required: boolean;
